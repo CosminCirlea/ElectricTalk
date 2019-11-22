@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        >
+
+        <TextView
+        android:id="@+id/tv_batteryLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Battery Left"
+        android:textColor="@color/colorText"
+        />
+
+        <TextView
+            android:id="@+id/tv_procent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@+id/tv_batteryLeft"
+            android:text="20%"
+            android:textColor="@color/colorText"
+            />
+
+        <TextView
+            android:id="@+id/tv_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text="FORD"
+            android:textColor="@color/colorText"
+            />
+
+        <TextView
+            android:id="@+id/tv_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text= "Mustang Mach-E"
+            android:layout_below="@+id/tv_company"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="20dp"
+            />
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_test"
-        android:title="@string/cars_fragment_name" />
+        android:icon="@drawable/ic_account"
+        android:title="Profile" />
 
     <item
         android:id="@+id/navigation_map"
-        android:icon="@drawable/ic_test"
-        android:title="@string/profile_fragment_name" />
+        android:icon="@drawable/ic_map"
+        android:title="Map" />
 
     <item
         android:id="@+id/navigation_cars"
-        android:icon="@drawable/ic_test"
-        android:title="@string/maps_fragment_name" />
+        android:icon="@drawable/ic_cars"
+        android:title="Cars" />
 
     <item
         android:id="@+id/navigation_forum"
-        android:icon="@drawable/ic_test"
+        android:icon="@drawable/ic_forum"
         android:title="@string/forum_fragment_name" />
 </menu>
