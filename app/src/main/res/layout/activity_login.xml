@@ -89,8 +89,8 @@
             android:text="Sign in"
             android:padding="6dp"
             android:textAllCaps="false"
-            android:textColor="@color/colorText"
-            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorButton"
             android:onClick="OnSignIn"
             />
 
