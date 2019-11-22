@@ -85,7 +85,30 @@ public class HttpClientManager {
                     Token = a.token;
                     callback.dataReceived(a);
                 }
+            }
 
+            @Override
+            public void onFailure(Call<SignInResponse> call, Throwable t) {
+            }
+        });
+    }
+
+    public void register(String email, String password, String firstname, String lastname,final OnDataReceived<SignInResponse> callback)
+    {
+        Map<String, String> map = new HashMap<>();
+        map.put("email", email);
+        map.put("password", password);
+        map.put("firstName", firstname);
+        map.put("lastName", lastname);
+
+        Call<SignInResponse> tokens = service.Register(map);
+        tokens.enqueue(new Callback<SignInResponse>() {
+            @Override
+            public void onResponse(Call<SignInResponse> call, retrofit2.Response<SignInResponse> response) {
+                if(response.isSuccessful()) {
+                    SignInResponse a = response.body();
+                    callback.dataReceived(a);
+                }
             }
 
             @Override
@@ -93,21 +116,5 @@ public class HttpClientManager {
 
             }
         });
-
-//        tokens.enqueue(new Callback<WebResponse<retrofit2.Response>>() {
-//            @Override
-//            public void onResponse(Call<WebResponse<retrofit2.Response>> call, retrofit2.Response<WebResponse<retrofit2.Response>> response) {
-//                WebResponse<retrofit2.Response> responseBody = response.body();
-//                if(response.isSuccessful()) {
-//                    callback.dataReceived(responseBody.getData());
-//                    return;
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<WebResponse<retrofit2.Response>> call, Throwable t) {
-//                int a =0;
-//            }
-//        });
     }
 }
