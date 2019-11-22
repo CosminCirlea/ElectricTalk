@@ -41,7 +41,7 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
         String company = myCars.get(position).getCompany();
         String model = myCars.get(position).getModel();
 
-        holder.batteryLeftTv.setText(batteryLeft);
+        holder.batteryLeftTv.setText(""+batteryLeft);
         holder.companyTv.setText(company);
         holder.modelTv.setText(model);
     }
@@ -63,7 +63,7 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
         }
 
         private void initializeViews(View itemView) {
-            batteryLeftTv = itemView.findViewById(R.id.tv_batteryLeft);
+            batteryLeftTv = itemView.findViewById(R.id.tv_procent);
             companyTv = itemView.findViewById(R.id.tv_company);
             modelTv = itemView.findViewById(R.id.tv_model);
         }
