@@ -43,7 +43,7 @@
             android:textSize="22sp"
             android:padding="6dp"
             android:textColor="@color/colorText"
-            android:background="@color/colorGray"
+            android:backgroundTint="@color/colorGray"
             />
 
         <TextView
@@ -69,10 +69,9 @@
             android:singleLine="true"
             android:layout_marginTop="16dp"
             android:textSize="22sp"
-            android:inputType="textPassword"
             android:padding="6dp"
             android:textColor="@color/colorText"
-            android:background="@color/colorGray"
+            android:backgroundTint="@color/colorGray"
             />
 
         <TextView
@@ -98,10 +97,10 @@
             android:singleLine="true"
             android:layout_marginTop="16dp"
             android:textSize="22sp"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:padding="6dp"
             android:textColor="@color/colorText"
-            android:background="@color/colorGray"
+            android:backgroundTint="@color/colorGray"
 
             />
 
@@ -131,7 +130,7 @@
             android:inputType="textPassword"
             android:padding="6dp"
             android:textColor="@color/colorText"
-            android:background="@color/colorGray"
+            android:backgroundTint="@color/colorGray"
             />
 
         <Button
