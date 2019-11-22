@@ -15,34 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="176dp"
             android:src="@drawable/ic_top_sigla"
+            android:scaleType="centerCrop"
             />
 
-        <TextView
-            android:layout_below="@+id/iv_icon"
-            android:id="@+id/tv_batteryLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_alignParentEnd="true"
-            android:textStyle="bold"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="60dp"
-            android:text="Battery Left"
-            android:textColor="@color/colorText"
-            />
 
-        <TextView
-            android:id="@+id/tv_procent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_alignParentEnd="true"
-            android:textStyle="bold"
-            android:layout_marginEnd="60dp"
-            android:layout_below="@+id/tv_batteryLeft"
-            android:text="20%"
-            android:textColor="@color/colorText"
-            />
 
         <TextView
             android:id="@+id/tv_company"
@@ -72,6 +48,39 @@
             android:layout_marginBottom="20dp"
             />
 
+        <TextView
+            android:id="@+id/tv_batteryLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
+            android:text="Battery Left"
+            android:textColor="@color/colorText"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tv_model"
+            android:layout_marginBottom="20dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_procent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/tv_model"
+            android:text="20%"
+            android:textColor="@color/colorText"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            />
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,12 +93,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="20dp"
             android:layout_alignParentStart="true"
             android:text= "Year"
             android:textStyle="bold"
-            android:layout_below="@+id/tv_model"
+            android:layout_below="@+id/tv_batteryLeft"
             android:textColor="@color/colorText"
             android:layout_marginBottom="20dp"
             />
@@ -99,12 +108,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="20dp"
             android:layout_alignParentRight="true"
             android:text= "2018"
-            android:layout_marginEnd="60dp"
-            android:layout_below="@+id/tv_model"
+            android:layout_marginEnd="40dp"
+            android:layout_below="@+id/tv_batteryLeft"
             android:textColor="@color/colorText"
             android:layout_marginBottom="20dp"
             />
@@ -133,7 +142,7 @@
             android:layout_marginStart="20dp"
             android:layout_alignParentRight="true"
             android:text= "400 km"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="40dp"
             android:layout_below="@+id/tv_year"
             android:textColor="@color/colorText"
             android:layout_marginBottom="20dp"
@@ -163,7 +172,7 @@
             android:layout_marginStart="20dp"
             android:layout_alignParentRight="true"
             android:text= "22.10.2019"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="40dp"
             android:layout_below="@+id/tv_autonomy"
             android:textColor="@color/colorText"
             android:layout_marginBottom="20dp"
