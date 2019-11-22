@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_icon_white"
@@ -14,17 +13,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.HomeActivity"></activity>
+        <activity android:name=".Activities.HomeActivity"/>
         <activity android:name=".Activities.EditProfileActivity" />
-        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.SignupActivity" />
         <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Activities.SignupActivity">
+        <activity android:name=".Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDvlgm6e62FaWZzcRJz8UVd_sJv7MNBszU" />
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 </manifest>
