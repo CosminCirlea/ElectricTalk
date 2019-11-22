@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.OneCarActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="match_parent"
+            android:layout_height="176dp"
+            android:src="@drawable/ic_top_sigla"
+            />
+
+        <TextView
+            android:layout_below="@+id/iv_icon"
+            android:id="@+id/tv_batteryLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="60dp"
+            android:text="Battery Left"
+            android:textColor="@color/colorText"
+            />
+
+        <TextView
+            android:id="@+id/tv_procent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:layout_marginEnd="60dp"
+            android:layout_below="@+id/tv_batteryLeft"
+            android:text="20%"
+            android:textColor="@color/colorText"
+            />
+
+        <TextView
+            android:id="@+id/tv_company"
+            android:layout_below="@+id/iv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text="FORD"
+            android:textColor="@color/colorText"
+            />
+
+        <TextView
+            android:id="@+id/tv_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text= "Mustang Mach-E"
+            android:layout_below="@+id/tv_company"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="20dp"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_line"
+            android:layout_below="@+id/tv_model"
+            />
+
+        <TextView
+            android:id="@+id/tv_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text= "Year"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_model"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="20dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_year2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentRight="true"
+            android:text= "2018"
+            android:layout_marginEnd="60dp"
+            android:layout_below="@+id/tv_model"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="20dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_autonomy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text= "Autonomy"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_year"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="20dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_autonomy2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentRight="true"
+            android:text= "400 km"
+            android:layout_marginEnd="60dp"
+            android:layout_below="@+id/tv_year"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="20dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_revision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text= "Last tech revision"
+            android:layout_below="@+id/tv_autonomy"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="20dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_revision2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentRight="true"
+            android:text= "22.10.2019"
+            android:layout_marginEnd="60dp"
+            android:layout_below="@+id/tv_autonomy"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="20dp"
+            />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
