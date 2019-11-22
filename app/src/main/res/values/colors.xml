@@ -6,4 +6,5 @@
     <color name="colorText">#212121</color>
     <color name="colorButton">#9EB5D2</color>
     <color name="colorGray">#F0EBE9</color>
+    <color name="toolbarColor">@color/colorAccent</color>
 </resources>

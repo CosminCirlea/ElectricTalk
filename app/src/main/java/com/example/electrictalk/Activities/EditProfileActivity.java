@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.electrictalk.R;
 
-public class EditProfileActivity extends AppCompatActivity {
+public class EditProfileActivity extends BaseAppCompat {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
