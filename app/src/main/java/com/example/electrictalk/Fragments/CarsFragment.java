@@ -13,12 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.electrictalk.Adapters.CarsAdapter;
 import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarsFragment extends Fragment {
 
+    private FloatingActionButton addCarBtn;
     private CarsAdapter carsAdapter;
     private RecyclerView recyclerView;
     private List<CarModel> carList = new ArrayList<>();
@@ -39,16 +41,21 @@ public class CarsFragment extends Fragment {
         carsAdapter = new CarsAdapter(carList,getContext());
         recyclerView.setAdapter(carsAdapter);
 
-        return rootView;
+        addCarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
 
+        return rootView;
     }
 
     public CarsFragment() {
-        // Required empty public constructor
     }
 
     private void initializeViews(View rootView) {
-
+        addCarBtn = rootView.findViewById(R.id.btn_add_car);
         recyclerView = rootView.findViewById(R.id.rv_listed_cars);
     }
 }
