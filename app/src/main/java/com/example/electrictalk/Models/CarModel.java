@@ -27,6 +27,12 @@ public class CarModel {
         this.id = id;
     }
 
+    public CarModel(String model, String company, int batteryLeft) {
+        this.model = model;
+        this.company = company;
+        this.batteryLeft = batteryLeft;
+    }
+
     public String getModel() {
         return model;
     }
