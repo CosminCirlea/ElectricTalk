@@ -25,6 +25,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initializeViews();
 
+        if (!HttpClientManager.Token.equals(""))
+        {
+            Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
+            startActivity(myInt2);
+        }
         usernameEt.setText("ursan.bernadeta@gmail.com");
         passwordEt.setText("iTEC2019!");
     }
@@ -46,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailed() {
-                int a =0;
             }
         });
     }
