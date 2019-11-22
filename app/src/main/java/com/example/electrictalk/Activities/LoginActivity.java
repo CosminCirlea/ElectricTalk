@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.electrictalk.Helpers.HttpClientManager;
+import com.example.electrictalk.Models.SignInResponse;
 import com.example.electrictalk.R;
 
 import java.util.List;
@@ -23,6 +24,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initializeViews();
+
+        usernameEt.setText("ursan.bernadeta@gmail.com");
+        passwordEt.setText("iTEC2019!");
     }
 
     public void OnSignUp(View view) {
@@ -31,15 +35,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void OnSignIn(View view) {
-        HttpClientManager.getInstance().Login(usernameEt.getText().toString(), passwordEt.getText().toString(), new HttpClientManager.OnDataReceived<Response>() {
+        String username= usernameEt.getText().toString();
+        String password = passwordEt.getText().toString();
+        HttpClientManager.getInstance().Login(username, password, new HttpClientManager.OnDataReceived<SignInResponse>() {
             @Override
-            public void dataReceived(Response data) {
+            public void dataReceived(SignInResponse data) {
                 Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
                 startActivity(myInt2);
             }
 
             @Override
             public void onFailed() {
+                int a =0;
             }
         });
     }

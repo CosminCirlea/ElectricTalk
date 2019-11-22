@@ -1,12 +1,11 @@
 package com.example.electrictalk.Helpers;
 
-import com.example.electrictalk.Models.WebResponse;
+import com.example.electrictalk.Models.SignInResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import okhttp3.Interceptor;
@@ -64,34 +63,51 @@ public class HttpClientManager {
                 setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
                 .create();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.6.68/")
+                .baseUrl("http://192.168.6.62:5030/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(httpClient.build())
                 .build();
         service = retrofit.create(WebApiService.class);
     }
 
-    public void Login(String username, String password, final OnDataReceived<retrofit2.Response> callback)
+    public void Login(String username, String password, final OnDataReceived<SignInResponse> callback)
     {
         Map<String, String> map = new HashMap<>();
-        map.put("username", username);
+        map.put("email", username);
         map.put("password", password);
 
-        Call<WebResponse<retrofit2.Response>> tokens = service.LogIn(map);
-        tokens.enqueue(new Callback<WebResponse<retrofit2.Response>>() {
+        Call<SignInResponse> tokens = service.LogIn(map);
+        tokens.enqueue(new Callback<SignInResponse>() {
             @Override
-            public void onResponse(Call<WebResponse<retrofit2.Response>> call, retrofit2.Response<WebResponse<retrofit2.Response>> response) {
-                WebResponse<retrofit2.Response> responseBody = response.body();
-                if(responseBody.isSuccessful()) {
-                    callback.dataReceived(responseBody.getData());
-                    return;
+            public void onResponse(Call<SignInResponse> call, retrofit2.Response<SignInResponse> response) {
+                if(response.isSuccessful()) {
+                    SignInResponse a = response.body();
+                    Token = a.token;
+                    callback.dataReceived(a);
                 }
+
             }
 
             @Override
-            public void onFailure(Call<WebResponse<retrofit2.Response>> call, Throwable t) {
+            public void onFailure(Call<SignInResponse> call, Throwable t) {
 
             }
         });
+
+//        tokens.enqueue(new Callback<WebResponse<retrofit2.Response>>() {
+//            @Override
+//            public void onResponse(Call<WebResponse<retrofit2.Response>> call, retrofit2.Response<WebResponse<retrofit2.Response>> response) {
+//                WebResponse<retrofit2.Response> responseBody = response.body();
+//                if(response.isSuccessful()) {
+//                    callback.dataReceived(responseBody.getData());
+//                    return;
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<WebResponse<retrofit2.Response>> call, Throwable t) {
+//                int a =0;
+//            }
+//        });
     }
 }
