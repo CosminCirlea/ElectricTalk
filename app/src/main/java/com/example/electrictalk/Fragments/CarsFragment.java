@@ -44,7 +44,7 @@ public class CarsFragment extends Fragment {
         addCarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
             }
         });
 

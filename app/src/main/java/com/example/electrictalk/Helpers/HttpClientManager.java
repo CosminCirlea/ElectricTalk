@@ -1,11 +1,14 @@
 package com.example.electrictalk.Helpers;
 
+import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.Models.SignInResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.Interceptor;
@@ -116,5 +119,52 @@ public class HttpClientManager {
 
             }
         });
+    }
+
+    public void addCar(String model, String company, int year, int autonomy, int batteryLeft, Date lastTechRevision, final OnDataReceived<CarModel> callback)
+    {
+        Map<String, String> map = new HashMap<>();
+        map.put("model", model);
+        map.put("company", company);
+        map.put("year", String.valueOf(year));
+        map.put("autonomy",  String.valueOf(autonomy));
+        map.put("batteryLeft",  String.valueOf(batteryLeft));
+        map.put("lastTechRevision",  lastTechRevision.toString());
+
+        Call<CarModel> tokens = service.addCar(map);
+        tokens.enqueue(new Callback<CarModel>() {
+            @Override
+            public void onResponse(Call<CarModel> call, retrofit2.Response<CarModel> response) {
+                if(response.isSuccessful()) {
+                    CarModel a = response.body();
+                    callback.dataReceived(a);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CarModel> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void getCars(final OnDataReceived<List<CarModel>> callback)
+    {
+        Call tokens = service.getCars();
+        tokens.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, retrofit2.Response response) {
+                if(response.isSuccessful()) {
+                    Object a = response.body();
+//                    callback.dataReceived(a);
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
+
     }
 }
