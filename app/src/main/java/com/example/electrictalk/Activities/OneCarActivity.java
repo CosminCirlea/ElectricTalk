@@ -34,6 +34,7 @@ public class OneCarActivity extends AppCompatActivity {
         HttpClientManager.getInstance().getCar(carId, new HttpClientManager.OnDataReceived<CarModel>() {
             @Override
             public void dataReceived(CarModel data) {
+                carModel = data;
                 setCarData(data);
             }
 
