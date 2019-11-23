@@ -323,4 +323,23 @@ public class HttpClientManager {
             }
         });
     }
+
+    public void deleteStation(UUID id, final OnDataReceived<ChargingStationModel> callback)
+    {
+        Call tokens = service.deleteStation(id);
+        tokens.enqueue(new Callback<ChargingStationModel>() {
+            @Override
+            public void onResponse(Call<ChargingStationModel> call, retrofit2.Response<ChargingStationModel> response) {
+                if(response.isSuccessful()) {
+                    ChargingStationModel aux = response.body();
+                    callback.dataReceived(aux);
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
+    }
 }
