@@ -10,7 +10,9 @@ import com.example.electrictalk.Models.SignInResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -175,17 +177,15 @@ public class HttpClientManager {
 
     }
 
-    public void addStation(String name, int totalSockets, int freeSockets, PointF location, final OnDataReceived<ChargingStationModel> callback)
+    public void addStation(String name, int totalSockets, int freeSockets, LocationModel location, final OnDataReceived<ChargingStationModel> callback)
     {
-        Gson gson = new Gson();
-        String toSend = gson.toJson(location);
-        Map<String, String> map = new HashMap<>();
-        map.put("name", name);
-        map.put("totalSockets", String.valueOf(totalSockets));
-        map.put("freeSockets",  String.valueOf(freeSockets));
-        map.put("location",  location.toString());
+        ChargingStationModel model = new ChargingStationModel();
+        model.name = name;
+        model.setTotalSocket(totalSockets);
+        model.setFreeSockets(freeSockets);
+        model.setLocation(location);
 
-        Call<ChargingStationModel> tokens = service.addStation(map);
+        Call<ChargingStationModel> tokens = service.addStation(model);
         tokens.enqueue(new Callback<ChargingStationModel>() {
             @Override
             public void onResponse(Call<ChargingStationModel> call, retrofit2.Response<ChargingStationModel> response) {

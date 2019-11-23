@@ -19,7 +19,7 @@ public class AddStationActivity extends BaseAppCompat {
     }
 
     public void addStation(View view) {
-        PointF locationModel = new PointF(23.4234f,45.12312f);
+        LocationModel locationModel = new LocationModel(25.4234f,55.12312f);
 
         HttpClientManager.getInstance().addStation("Station test", 5, 1, locationModel, new HttpClientManager.OnDataReceived<ChargingStationModel>() {
             @Override

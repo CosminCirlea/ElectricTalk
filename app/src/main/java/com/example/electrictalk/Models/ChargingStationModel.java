@@ -1,8 +1,5 @@
 package com.example.electrictalk.Models;
 
-import android.graphics.PointF;
-import android.location.Location;
-
 import com.google.gson.annotations.SerializedName;
 
 public class ChargingStationModel {
@@ -13,7 +10,7 @@ public class ChargingStationModel {
     @SerializedName("freeSockets")
     private int freeSockets;
     @SerializedName("location")
-    private PointF location;
+    private LocationModel location;
     @SerializedName("userId")
     private String userId;
     @SerializedName("oldStationId")
@@ -48,11 +45,11 @@ public class ChargingStationModel {
         this.freeSockets = freeSockets;
     }
 
-    public PointF getLocation() {
+    public LocationModel getLocation() {
         return location;
     }
 
-    public void setLocation(PointF location) {
+    public void setLocation(LocationModel location) {
         this.location = location;
     }
 

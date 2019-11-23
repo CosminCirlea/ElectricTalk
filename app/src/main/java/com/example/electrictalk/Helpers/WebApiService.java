@@ -26,7 +26,7 @@ public interface WebApiService {
     Call<List<CarModel>> getCars();
 
     @POST("api/Stations")
-    Call<ChargingStationModel> addStation(@Body Map<String, String> map);
+    Call<ChargingStationModel> addStation(@Body ChargingStationModel model);
 
     @GET("api/Stations")
     Call<List<ChargingStationModel>> getStations();
