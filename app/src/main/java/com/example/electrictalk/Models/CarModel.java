@@ -9,14 +9,14 @@ public class CarModel {
     private int year;
     private int autonomy;
     private int batteryLeft;
-    private Date lastTechRevision;
+    private String lastTechRevision;
     private UUID userId;
     private UUID id;
 
     public CarModel() {
     }
 
-    public CarModel(String model, String company, int year, int autonomy, int batteryLeft, Date lastTechRevision, UUID userId, UUID id) {
+    public CarModel(String model, String company, int year, int autonomy, int batteryLeft, String lastTechRevision, UUID userId, UUID id) {
         this.model = model;
         this.company = company;
         this.year = year;
@@ -73,11 +73,11 @@ public class CarModel {
         this.batteryLeft = batteryLeft;
     }
 
-    public Date getLastTechRevision() {
+    public String getLastTechRevision() {
         return lastTechRevision;
     }
 
-    public void setLastTechRevision(Date lastTechRevision) {
+    public void setLastTechRevision(String lastTechRevision) {
         this.lastTechRevision = lastTechRevision;
     }
 

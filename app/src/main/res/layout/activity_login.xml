@@ -43,7 +43,6 @@
             android:layout_below="@+id/tv_email"
             android:singleLine="true"
             android:textSize="22sp"
-            android:inputType="textPassword"
             android:padding="6dp"
             android:textColor="@color/colorText"
             android:backgroundTint="@color/colorGray"
