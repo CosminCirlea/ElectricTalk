@@ -48,6 +48,7 @@
             android:textAllCaps="false"
             android:textColor="@color/colorText"
             android:background="@color/colorGray"
+            android:backgroundTint="@color/colorRed"
             android:layout_margin="20dp"
             android:layout_alignParentLeft="true"
             />
