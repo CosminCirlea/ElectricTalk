@@ -4,14 +4,13 @@ import android.graphics.PointF;
 import android.location.Location;
 
 public class ChargingStationModel {
-    private String name;
+    public String name;
     private int totalSockets;
     private int freeSockets;
     private PointF location;
     private String userId;
     private String oldStationId;
     private String id;
-    private LocationModel locationModel;
 
     public ChargingStationModel() {
     }
@@ -70,13 +69,5 @@ public class ChargingStationModel {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public LocationModel getLocationModel() {
-        return locationModel;
-    }
-
-    public void setLocationModel(LocationModel locationModel) {
-        this.locationModel = locationModel;
     }
 }

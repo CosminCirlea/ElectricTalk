@@ -126,7 +126,7 @@ public class HttpClientManager {
         });
     }
 
-    public void addCar(String model, String company, int year, int autonomy, int batteryLeft, Date lastTechRevision, final OnDataReceived<CarModel> callback)
+    public void addCar(String model, String company, int year, int autonomy, int batteryLeft, String lastTechRevision, final OnDataReceived<CarModel> callback)
     {
         Map<String, String> map = new HashMap<>();
         map.put("model", model);
@@ -134,7 +134,7 @@ public class HttpClientManager {
         map.put("year", String.valueOf(year));
         map.put("autonomy",  String.valueOf(autonomy));
         map.put("batteryLeft",  String.valueOf(batteryLeft));
-        map.put("lastTechRevision",  lastTechRevision.toString());
+        map.put("lastTechRevision",  lastTechRevision);
 
         Call<CarModel> tokens = service.addCar(map);
         tokens.enqueue(new Callback<CarModel>() {
@@ -148,7 +148,6 @@ public class HttpClientManager {
 
             @Override
             public void onFailure(Call<CarModel> call, Throwable t) {
-
             }
         });
     }
@@ -187,8 +186,8 @@ public class HttpClientManager {
             @Override
             public void onResponse(Call<ChargingStationModel> call, retrofit2.Response<ChargingStationModel> response) {
                 if(response.isSuccessful()) {
-                    ChargingStationModel a = response.body();
-                    callback.dataReceived(a);
+                    ChargingStationModel aux = response.body();
+                    callback.dataReceived(aux);
                 }
             }
 

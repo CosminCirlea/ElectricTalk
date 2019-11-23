@@ -1,6 +1,7 @@
 package com.example.electrictalk.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.electrictalk.Activities.AddCarActivity;
 import com.example.electrictalk.Adapters.CarsAdapter;
 import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.R;
@@ -44,7 +46,7 @@ public class CarsFragment extends Fragment {
         addCarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getActivity(), AddCarActivity.class));
             }
         });
 
