@@ -8,6 +8,7 @@ import com.example.electrictalk.Helpers.HttpClientManager;
 import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.LocationModel;
 import com.example.electrictalk.R;
+import com.google.android.gms.maps.model.LatLng;
 
 public class AddStationActivity extends BaseAppCompat {
 
@@ -16,6 +17,9 @@ public class AddStationActivity extends BaseAppCompat {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_station);
         super.SetToolbarTitle("Station");
+
+        Bundle bundle = getIntent().getParcelableExtra("positionBundle");
+        LatLng position = bundle.getParcelable("position");
     }
 
     public void addStation(View view) {
