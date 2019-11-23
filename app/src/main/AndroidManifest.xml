@@ -28,11 +28,13 @@
         <activity android:name=".Activities.AddStationActivity" />
         <activity android:name=".Activities.AddCarActivity" />
         <activity android:name=".Activities.OneCarActivity" />
-        <activity android:name=".Activities.HomeActivity" />
+        <activity android:name=".Activities.HomeActivity"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".Activities.EditProfileActivity" />
         <activity android:name=".Activities.SignupActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Activities.LoginActivity">
+        <activity android:name=".Activities.LoginActivity"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
