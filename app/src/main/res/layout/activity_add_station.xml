@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".Activities.AddStationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/iv_icon"
@@ -21,22 +26,35 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/iv_icon">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_edit"
+        android:textSize="24sp"
+        android:src="@drawable/ic_edit"
+        android:textAllCaps="false"
+        android:textColor="@color/colorText"
+        android:background="@color/colorGray"
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        />
+
+
     <EditText
         android:id="@+id/et_add_station_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
-        android:layout_below="@+id/toolbar_with_back_button"
+        android:layout_below="@+id/btn_edit"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:singleLine="true"
         android:textSize="22sp"
-        android:inputType="textPassword"
         android:padding="6dp"
         android:textColor="@color/colorText"
         android:backgroundTint="@color/colorGray"
-        android:layout_marginBottom="6dp"
-        android:layout_marginTop="36dp"/>
+        android:layout_marginBottom="20dp"
+        />
 
     <EditText
         android:id="@+id/et_add_station_total_sockets"
@@ -48,11 +66,10 @@
         android:layout_marginEnd="20dp"
         android:singleLine="true"
         android:textSize="22sp"
-        android:inputType="textPassword"
         android:padding="6dp"
         android:textColor="@color/colorText"
         android:backgroundTint="@color/colorGray"
-        android:layout_marginBottom="6dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/et_add_station_free_sockets"
@@ -64,11 +81,10 @@
         android:layout_marginEnd="20dp"
         android:singleLine="true"
         android:textSize="22sp"
-        android:inputType="textPassword"
         android:padding="6dp"
         android:textColor="@color/colorText"
         android:backgroundTint="@color/colorGray"
-        android:layout_marginBottom="6dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/et_add_station_location"
@@ -80,28 +96,24 @@
         android:layout_marginEnd="20dp"
         android:singleLine="true"
         android:textSize="22sp"
-        android:inputType="textPassword"
         android:padding="6dp"
         android:textColor="@color/colorText"
         android:backgroundTint="@color/colorGray"
-        android:layout_marginBottom="6dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/btn_add_station"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
         android:onClick="addStation"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:textSize="24sp"
         android:text="Add station"
-        android:padding="6dp"
         android:textAllCaps="false"
         android:textColor="@color/colorText"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="32dp"
         android:background="@color/colorGray"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/et_add_station_location"
         />
     </RelativeLayout>
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
