@@ -11,6 +11,7 @@ import com.example.electrictalk.Helpers.HttpClientManager;
 import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.R;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.UUID;
 
@@ -33,6 +34,7 @@ public class OneCarActivity extends AppCompatActivity {
         HttpClientManager.getInstance().getCar(carId, new HttpClientManager.OnDataReceived<CarModel>() {
             @Override
             public void dataReceived(CarModel data) {
+                carModel = data;
                 setCarData(data);
             }
 
@@ -46,12 +48,12 @@ public class OneCarActivity extends AppCompatActivity {
     private void setCarData(CarModel carModel)
     {
         companyNameTv.setText(carModel.getCompany());
-        yearTv.setText(carModel.getYear());
+        yearTv.setText(String.valueOf(carModel.getYear()));
         modelNameTv.setText(carModel.getModel());
-        yearTv.setText(carModel.getModel());
-        batteryTv.setText(carModel.getBatteryLeft());
-        autonomyTv.setText(carModel.getAutonomy());
-        lastRevisionTv.setText(carModel.getLastTechRevision());
+        batteryTv.setText(String.valueOf(carModel.getBatteryLeft()).concat("%"));
+        autonomyTv.setText(String.valueOf(carModel.getAutonomy()));
+        String date = carModel.getLastTechRevision().substring(0, 10);
+        lastRevisionTv.setText(date);
     }
 
     private void initializeViews()
@@ -66,6 +68,9 @@ public class OneCarActivity extends AppCompatActivity {
 
     public void OnEditCar(View view) {
         Intent myInt2= new Intent(OneCarActivity.this,EditCarActivity.class);
+        Gson gson = new Gson();
+        String serializedCar = gson.toJson(carModel);
+        myInt2.putExtra("car_model", serializedCar);
         startActivity(myInt2);
     }
 }

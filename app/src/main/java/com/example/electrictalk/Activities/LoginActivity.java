@@ -107,7 +107,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void dataReceived(UserModel data) {
                 StorageHelper.myUser = data;
-
             }
 
             @Override
