@@ -1,12 +1,17 @@
 package com.example.electrictalk.Models;
 
+import android.graphics.PointF;
 import android.location.Location;
 
 public class ChargingStationModel {
     private String name;
-    private int totalSocket;
+    private int totalSockets;
     private int freeSockets;
-    private Location location;
+    private PointF location;
+    private String userId;
+    private String oldStationId;
+    private String id;
+    private LocationModel locationModel;
 
     public ChargingStationModel() {
     }
@@ -20,11 +25,11 @@ public class ChargingStationModel {
     }
 
     public int getTotalSocket() {
-        return totalSocket;
+        return totalSockets;
     }
 
     public void setTotalSocket(int totalSocket) {
-        this.totalSocket = totalSocket;
+        this.totalSockets = totalSocket;
     }
 
     public int getFreeSockets() {
@@ -35,11 +40,43 @@ public class ChargingStationModel {
         this.freeSockets = freeSockets;
     }
 
-    public Location getLocation() {
+    public PointF getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(PointF location) {
         this.location = location;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getOldStationId() {
+        return oldStationId;
+    }
+
+    public void setOldStationId(String oldStationId) {
+        this.oldStationId = oldStationId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public LocationModel getLocationModel() {
+        return locationModel;
+    }
+
+    public void setLocationModel(LocationModel locationModel) {
+        this.locationModel = locationModel;
     }
 }

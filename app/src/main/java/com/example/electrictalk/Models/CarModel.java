@@ -7,7 +7,7 @@ public class CarModel {
     private String model;
     private String company;
     private int year;
-    private float autonomy;
+    private int autonomy;
     private int batteryLeft;
     private Date lastTechRevision;
     private UUID userId;
@@ -16,7 +16,7 @@ public class CarModel {
     public CarModel() {
     }
 
-    public CarModel(String model, String company, int year, float autonomy, int batteryLeft, Date lastTechRevision, UUID userId, UUID id) {
+    public CarModel(String model, String company, int year, int autonomy, int batteryLeft, Date lastTechRevision, UUID userId, UUID id) {
         this.model = model;
         this.company = company;
         this.year = year;
@@ -57,11 +57,11 @@ public class CarModel {
         this.year = year;
     }
 
-    public float getAutonomy() {
+    public int getAutonomy() {
         return autonomy;
     }
 
-    public void setAutonomy(float autonomy) {
+    public void setAutonomy(int autonomy) {
         this.autonomy = autonomy;
     }
 
