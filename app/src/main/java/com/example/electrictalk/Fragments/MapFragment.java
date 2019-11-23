@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
     private SupportMapFragment mapFragment;
@@ -35,7 +36,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private boolean isLocationSet;
     private LatLng position;
     private MarkerOptions markerOptions;
-
+    ChargingStationModel max;
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,8 +52,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 startActivity(intent);
             }
         });
-
-        displayStations();
 
         return rootView;
     }
@@ -72,6 +71,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(final GoogleMap googleMap) {
         this.googleMap = googleMap;
+        displayStations();
 
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(45.7494, 21.2272), 13));
         googleMap.getUiSettings().setMyLocationButtonEnabled(true);
@@ -90,6 +90,19 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 {
                     markerOptions.visible(false);
                 }
+            }
+        });
+
+        googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                max = (ChargingStationModel) marker.getTag();
+                Gson gson = new Gson();
+                String charginStation = gson.toJson(max);
+                Intent intent = new Intent(getActivity(), AddStationActivity.class);
+                intent.putExtra("charging_station", charginStation);
+                startActivity(intent);
+                return true;
             }
         });
     }

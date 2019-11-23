@@ -10,6 +10,7 @@ import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.LocationModel;
 import com.example.electrictalk.R;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.gson.Gson;
 
 public class AddStationActivity extends BaseAppCompat {
     private LatLng position;
@@ -17,6 +18,7 @@ public class AddStationActivity extends BaseAppCompat {
     private String name;
     private int freeSockets, totalSockets;
     private float latitude, longitude;
+    private ChargingStationModel station;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,13 @@ public class AddStationActivity extends BaseAppCompat {
         super.SetToolbarTitle("Station");
         initializeViews();
 
+        String charginStation = getIntent().getStringExtra("charging_station");
+        Gson gson = new Gson();
+        station = gson.fromJson(charginStation, ChargingStationModel.class);
+    }
+
+    private void setData()
+    {
 
     }
 
