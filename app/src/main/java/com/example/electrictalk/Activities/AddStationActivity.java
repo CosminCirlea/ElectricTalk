@@ -1,6 +1,5 @@
 package com.example.electrictalk.Activities;
 
-import android.graphics.PointF;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,7 +10,7 @@ import com.example.electrictalk.R;
 import com.google.android.gms.maps.model.LatLng;
 
 public class AddStationActivity extends BaseAppCompat {
-
+    private LatLng position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,11 +18,11 @@ public class AddStationActivity extends BaseAppCompat {
         super.SetToolbarTitle("Station");
 
         Bundle bundle = getIntent().getParcelableExtra("positionBundle");
-        LatLng position = bundle.getParcelable("position");
+        position = bundle.getParcelable("position");
     }
 
     public void addStation(View view) {
-        LocationModel locationModel = new LocationModel(25.4234f,55.12312f);
+        LocationModel locationModel = new LocationModel((float)position.latitude,(float)position.longitude);
 
         HttpClientManager.getInstance().addStation("Station test", 5, 1, locationModel, new HttpClientManager.OnDataReceived<ChargingStationModel>() {
             @Override

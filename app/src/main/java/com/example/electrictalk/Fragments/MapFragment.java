@@ -23,13 +23,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapClickListener  {
-    private MapView mMapView;
+public class MapFragment extends Fragment implements OnMapReadyCallback {
     private SupportMapFragment mapFragment;
     private GoogleMap googleMap;
     private FloatingActionButton addStationBtn;
     private boolean isLocationSet;
     private LatLng position;
+    private MarkerOptions markerOptions;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -63,30 +63,32 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(final GoogleMap googleMap) {
         this.googleMap = googleMap;
 
         googleMap.getUiSettings().setMyLocationButtonEnabled(true);
+        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                isLocationSet = !isLocationSet;
+                if (isLocationSet){
+                    markerOptions = new MarkerOptions();
+                    position = latLng;
+                    markerOptions.position(new LatLng(latLng.latitude, latLng.latitude));
+                    googleMap.addMarker(markerOptions);
+                    markerOptions.visible(true);
+                }
+                else
+                {
+                    markerOptions.visible(false);
+                }
+            }
+        });
     }
 
     private void initializeViews(View rootView)
     {
         mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
         addStationBtn = rootView.findViewById(R.id.btn_add_station);
-    }
-
-    @Override
-    public void onMapClick(LatLng latLng) {
-        isLocationSet = !isLocationSet;
-        MarkerOptions markerOptions = new MarkerOptions();
-
-        if (!isLocationSet){
-            markerOptions.position(new LatLng(latLng.latitude, latLng.latitude));
-            position = latLng;
-        }
-        else
-        {
-            mMapView.setVisibility(View.GONE);
-        }
     }
 }

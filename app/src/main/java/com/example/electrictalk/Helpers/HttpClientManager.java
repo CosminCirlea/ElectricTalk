@@ -7,6 +7,7 @@ import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.LocationModel;
 import com.example.electrictalk.Models.SignInResponse;
+import com.example.electrictalk.Models.UserModel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -197,6 +198,50 @@ public class HttpClientManager {
 
             @Override
             public void onFailure(Call<ChargingStationModel> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void getStations(final OnDataReceived<List<ChargingStationModel>> callback)
+    {
+        Call<List<ChargingStationModel>> tokens = service.getStations();
+        tokens.enqueue(new Callback<List<ChargingStationModel>>() {
+            @Override
+            public void onResponse(Call<List<ChargingStationModel>> call, retrofit2.Response<List<ChargingStationModel>> response) {
+                if (response.isSuccessful())
+                {
+                    List<ChargingStationModel> chargingStationModels = new ArrayList<>();
+                    chargingStationModels = response.body();
+                    callback.dataReceived(chargingStationModels);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ChargingStationModel>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void updateProfile(String firstname, String lastname, final OnDataReceived<UserModel> callback)
+    {
+        Map<String, String> map = new HashMap<>();
+        map.put("firstname", firstname);
+        map.put("lastname", lastname);
+
+        Call<UserModel> tokens = service.updateProfile(map);
+        tokens.enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, retrofit2.Response<UserModel> response) {
+                if(response.isSuccessful()) {
+                    UserModel aux = response.body();
+                    callback.dataReceived(aux);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
 
             }
         });

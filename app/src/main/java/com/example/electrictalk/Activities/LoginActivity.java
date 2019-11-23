@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.example.electrictalk.Helpers.HttpClientManager;
 import com.example.electrictalk.Helpers.StorageHelper;
 import com.example.electrictalk.Models.CarModel;
+import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.SignInResponse;
 import com.example.electrictalk.R;
 
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
             startActivity(myInt2);
             getCars();
+            getStations();
         }
         usernameEt.setText("ursan.bernadeta@gmail.com");
         passwordEt.setText("iTEC2019!");
@@ -52,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
                 startActivity(myInt2);
                 getCars();
+                getStations();
             }
 
             @Override
@@ -71,6 +74,23 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailed() {
+            }
+        });
+    }
+
+    private void getStations()
+    {
+        StorageHelper.myStationsList = new ArrayList<>();
+
+        HttpClientManager.getInstance().getStations(new HttpClientManager.OnDataReceived<List<ChargingStationModel>>() {
+            @Override
+            public void dataReceived(List<ChargingStationModel> data) {
+                StorageHelper.myStationsList.addAll(data);
+            }
+
+            @Override
+            public void onFailed() {
+
             }
         });
     }
