@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="600dp"
         >
 
         <ImageView
@@ -85,15 +85,16 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/et_last_name"
-            android:layout_marginTop="32dp"
             android:textSize="24sp"
             android:text="Save profile"
             android:padding="6dp"
             android:textAllCaps="false"
             android:textColor="@color/colorText"
             android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
             android:onClick="OnSaveProfile"
-            android:background="@drawable/border"            />
+            android:background="@drawable/border"
+            />
 
     </RelativeLayout>
 
