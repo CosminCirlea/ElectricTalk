@@ -1,9 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.AddCarActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="match_parent"
+            android:layout_height="176dp"
+            android:src="@drawable/ic_top_sigla"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/tv_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="60dp"
+            android:text="Company"
+            android:textColor="@color/colorText"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/iv_icon"
+            android:layout_marginBottom="6dp"
+            />
+
+        <EditText
+            android:id="@+id/et_company"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_company"
+            android:singleLine="true"
+            android:textSize="22sp"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textColor="@color/colorText"
+            android:backgroundTint="@color/colorGray"
+            android:layout_marginBottom="6dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:layout_marginEnd="60dp"
+            android:text="Model"
+            android:textColor="@color/colorText"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/et_company"
+            android:layout_marginBottom="6dp"
+            />
+
+        <EditText
+            android:id="@+id/et_model"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_model"
+            android:singleLine="true"
+            android:textSize="22sp"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textColor="@color/colorText"
+            android:backgroundTint="@color/colorGray"
+            android:layout_marginBottom="6dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_batteryLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:layout_marginEnd="60dp"
+            android:text="Battery Left"
+            android:textColor="@color/colorText"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/et_model"
+            android:layout_marginBottom="6dp"
+            />
+
+        <EditText
+            android:id="@+id/et_batteryLeft"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_batteryLeft"
+            android:singleLine="true"
+            android:textSize="22sp"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textColor="@color/colorText"
+            android:backgroundTint="@color/colorGray"
+            android:layout_marginBottom="6dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text= "Year"
+            android:textStyle="bold"
+            android:layout_below="@+id/et_batteryLeft"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="6dp"
+            />
+
+        <EditText
+            android:id="@+id/et_year"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_year"
+            android:singleLine="true"
+            android:textSize="22sp"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textColor="@color/colorText"
+            android:backgroundTint="@color/colorGray"
+            android:layout_marginBottom="6dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_autonomy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text= "Autonomy"
+            android:textStyle="bold"
+            android:layout_below="@+id/et_year"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="6dp"
+            />
+
+        <EditText
+            android:id="@+id/et_autonomy"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_autonomy"
+            android:singleLine="true"
+            android:textSize="22sp"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textColor="@color/colorText"
+            android:backgroundTint="@color/colorGray"
+            android:layout_marginBottom="6dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_revision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:text= "Last tech revision"
+            android:layout_below="@+id/et_autonomy"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="6dp"
+            />
+
+        <EditText
+            android:id="@+id/et_revision"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_revision"
+            android:singleLine="true"
+            android:textSize="22sp"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textColor="@color/colorText"
+            android:backgroundTint="@color/colorGray"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/et_revision"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="24sp"
+            android:text="Add car"
+            android:padding="6dp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorText"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="36dp"
+            android:background="@color/colorGray"
+            />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

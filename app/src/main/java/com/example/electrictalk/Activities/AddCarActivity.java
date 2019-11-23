@@ -1,12 +1,11 @@
 package com.example.electrictalk.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 import com.example.electrictalk.R;
 
-public class AddCarActivity extends AppCompatActivity {
+public class AddCarActivity extends BaseAppCompat {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

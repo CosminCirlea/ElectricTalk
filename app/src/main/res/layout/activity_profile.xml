@@ -16,6 +16,7 @@
             android:layout_height="160dp"
             android:src="@drawable/ic_top_sigla"
             android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
             />
 
         <ImageView
