@@ -2,7 +2,9 @@ package com.example.electrictalk.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.electrictalk.Helpers.HttpClientManager;
@@ -60,5 +62,10 @@ public class OneCarActivity extends AppCompatActivity {
         autonomyTv = findViewById(R.id.tv_autonomy2);
         yearTv = findViewById(R.id.tv_year2);
         lastRevisionTv = findViewById(R.id.tv_revision2);
+    }
+
+    public void OnEditCar(View view) {
+        Intent myInt2= new Intent(OneCarActivity.this,EditCarActivity.class);
+        startActivity(myInt2);
     }
 }

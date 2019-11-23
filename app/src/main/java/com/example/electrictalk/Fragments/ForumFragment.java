@@ -25,4 +25,6 @@ public class ForumFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_forum, container, false);
     }
 
+
+
 }

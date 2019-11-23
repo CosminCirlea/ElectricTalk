@@ -18,9 +18,41 @@
             android:scaleType="centerCrop"
             />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_icon">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_edit"
+                android:textSize="24sp"
+                android:src="@drawable/ic_edit"
+                android:textAllCaps="false"
+                android:textColor="@color/colorText"
+                android:background="@color/colorGray"
+                android:layout_margin="20dp"
+                android:layout_alignParentRight="true"
+                android:onClick="OnEditCar"
+                />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_delete"
+                android:textSize="24sp"
+                android:src="@drawable/ic_delete"
+                android:textAllCaps="false"
+                android:textColor="@color/colorText"
+                android:backgroundTint="@color/colorRed"
+                android:layout_margin="20dp"
+                android:layout_alignParentLeft="true"
+                />
+
         <TextView
             android:id="@+id/tv_company"
-            android:layout_below="@+id/iv_icon"
+            android:layout_below="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="26sp"
@@ -176,6 +208,7 @@
             android:layout_marginBottom="20dp"
             />
 
+        </RelativeLayout>
     </RelativeLayout>
 
 </androidx.core.widget.NestedScrollView>

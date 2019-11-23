@@ -30,6 +30,7 @@
             android:layout_alignParentStart="true"
             android:hint="FORD"
             android:textColor="@color/colorText"
+            android:singleLine="true"
             />
 
         <EditText
@@ -44,6 +45,7 @@
             android:layout_below="@+id/tv_company"
             android:textColor="@color/colorText"
             android:layout_marginBottom="20dp"
+            android:singleLine="true"
             />
 
         <TextView
@@ -72,11 +74,12 @@
             android:layout_below="@+id/tv_model"
             android:hint="20%"
             android:textColor="@color/colorText"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="18dp"
             android:layout_marginStart="20dp"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="40dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="1dp"
+            android:singleLine="true"
             />
 
         <ImageView
@@ -106,14 +109,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="1dp"
             android:layout_marginStart="20dp"
             android:layout_alignParentRight="true"
             android:hint= "2018"
             android:layout_marginEnd="40dp"
             android:layout_below="@+id/tv_batteryLeft"
             android:textColor="@color/colorText"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="1dp"
+            android:singleLine="true"
             />
 
         <TextView
@@ -136,14 +140,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="1dp"
             android:layout_marginStart="20dp"
             android:layout_alignParentRight="true"
             android:hint= "400 km"
             android:layout_marginEnd="40dp"
             android:layout_below="@+id/tv_year"
             android:textColor="@color/colorText"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="1dp"
+            android:singleLine="true"
             />
 
         <TextView
@@ -166,16 +171,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="1dp"
             android:layout_marginStart="20dp"
             android:layout_alignParentRight="true"
             android:hint= "22.10.2019"
             android:layout_marginEnd="40dp"
             android:layout_below="@+id/tv_autonomy"
             android:textColor="@color/colorText"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="1dp"
+            android:singleLine="true"
             />
 
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/tv_revision"
+            android:layout_marginTop="32dp"
+            android:textSize="24sp"
+            android:text="Save car"
+            android:padding="6dp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorText"
+            android:background="@color/colorGray"
+            android:layout_marginBottom="20dp"
+            android:onClick="OnSaveCar"
+            />
+        
     </RelativeLayout>
 
 </androidx.core.widget.NestedScrollView>
