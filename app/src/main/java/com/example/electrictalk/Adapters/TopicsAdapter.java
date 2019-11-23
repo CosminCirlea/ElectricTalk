@@ -7,51 +7,48 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.electrictalk.Activities.HomeActivity;
-import com.example.electrictalk.Activities.OneCarActivity;
+import com.example.electrictalk.Activities.MessagesActivity;
 import com.example.electrictalk.Activities.TopicsActivity;
-import com.example.electrictalk.Fragments.ForumFragment;
 import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.R;
-import com.google.gson.Gson;
 
 import java.util.List;
-import java.util.UUID;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder>{
+public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.ViewHolder> {
 
-    private List<CarModel> myCategories;
+
+    private List<CarModel> myTopics;
     private Context context;
 
-    public CategoriesAdapter(List<CarModel> myCategories, Context context) {
-        this.myCategories = myCategories;
+    public TopicsAdapter(List<CarModel> myTopics, Context context) {
+        this.myTopics = myTopics;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public CategoriesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TopicsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.row_categories, parent, false);
-        CategoriesAdapter.ViewHolder holder = new CategoriesAdapter.ViewHolder(view);
+        View view = layoutInflater.inflate(R.layout.row_topics, parent, false);
+        TopicsAdapter.ViewHolder holder = new TopicsAdapter.ViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TopicsAdapter.ViewHolder holder, int position) {
 
-        String category = myCategories.get(position).getCompany();
+        String topic = myTopics.get(position).getCompany();
 
-        holder.categoryTv.setText(category);
+        holder.topicTv.setText(topic);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(context, TopicsActivity.class);
+                Intent mIntent = new Intent(context, MessagesActivity.class);
                 context.startActivity(mIntent);
             }
         });
@@ -60,12 +57,12 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return myCategories.size();
+        return myTopics.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView categoryTv;
+        private TextView topicTv;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -74,7 +71,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         }
 
         private void initializeViews(View itemView) {
-            categoryTv = itemView.findViewById(R.id.tv_category);
+            topicTv = itemView.findViewById(R.id.tv_topic);
         }
     }
 }
