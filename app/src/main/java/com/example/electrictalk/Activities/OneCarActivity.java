@@ -46,12 +46,12 @@ public class OneCarActivity extends AppCompatActivity {
     private void setCarData(CarModel carModel)
     {
         companyNameTv.setText(carModel.getCompany());
-        yearTv.setText(carModel.getYear());
+        yearTv.setText(String.valueOf(carModel.getYear()));
         modelNameTv.setText(carModel.getModel());
-        yearTv.setText(carModel.getModel());
-        batteryTv.setText(carModel.getBatteryLeft());
-        autonomyTv.setText(carModel.getAutonomy());
-        lastRevisionTv.setText(carModel.getLastTechRevision());
+        batteryTv.setText(String.valueOf(carModel.getBatteryLeft()).concat("%"));
+        autonomyTv.setText(String.valueOf(carModel.getAutonomy()));
+        String date = carModel.getLastTechRevision().substring(0, 10);
+        lastRevisionTv.setText(date);
     }
 
     private void initializeViews()

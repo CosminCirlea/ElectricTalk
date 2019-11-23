@@ -13,6 +13,8 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface WebApiService {
     @POST("api/Auth/Register")
@@ -30,8 +32,8 @@ public interface WebApiService {
     @POST("api/Cars")
     Call<CarModel> addCar(@Body Map<String, String> map);
 
-    @POST("api/Cars/{id}")
-    Call<CarModel> getCar(@Body Map<String, String> map);
+    @GET("api/Cars/{id}")
+    Call<CarModel> getCar(@Path(value = "id") UUID id);
 
     @GET("api/Cars")
     Call<List<CarModel>> getCars();
