@@ -40,9 +40,9 @@
                 />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_delete"
                 android:textSize="24sp"
                 android:src="@drawable/ic_delete"
                 android:textAllCaps="false"
