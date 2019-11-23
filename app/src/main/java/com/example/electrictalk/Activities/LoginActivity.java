@@ -12,6 +12,7 @@ import com.example.electrictalk.Helpers.StorageHelper;
 import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.SignInResponse;
+import com.example.electrictalk.Models.UserModel;
 import com.example.electrictalk.R;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(myInt2);
             getCars();
             getStations();
+            getProfileData();
         }
         usernameEt.setText("ursan.bernadeta@gmail.com");
         passwordEt.setText("iTEC2019!");
@@ -55,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(myInt2);
                 getCars();
                 getStations();
+                getProfileData();
             }
 
             @Override
@@ -86,6 +89,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void dataReceived(List<ChargingStationModel> data) {
                 StorageHelper.myStationsList.addAll(data);
+            }
+
+            @Override
+            public void onFailed() {
+
+            }
+        });
+    }
+
+    private void getProfileData()
+    {
+        StorageHelper.myUser = new UserModel();
+
+        HttpClientManager.getInstance().getProfileData(new HttpClientManager.OnDataReceived<UserModel>() {
+            @Override
+            public void dataReceived(UserModel data) {
+                StorageHelper.myUser = data;
             }
 
             @Override

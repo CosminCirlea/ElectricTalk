@@ -23,6 +23,9 @@ public interface WebApiService {
     @POST("api/Auth/Update")
     Call<UserModel> updateProfile(@Body Map<String, String> map);
 
+    @GET("api/Auth/Me")
+    Call<UserModel> getProfileData();
+
     @POST("api/Cars")
     Call<CarModel> addCar(@Body Map<String, String> map);
 

@@ -23,12 +23,10 @@
             android:id="@+id/iv_picture"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_weight="1"
             android:layout_below="@+id/iv_icon"
             android:src="@mipmap/ic_icon"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="70dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginRight="40dp"
             />
 
         <TextView
@@ -39,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="First Name"
             android:layout_below="@+id/iv_picture"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="20dp"
             android:textSize="18sp"
             android:textColor="@color/colorText"
             />
@@ -95,7 +93,6 @@
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_below="@+id/et_last_name"
             android:layout_marginTop="32dp"
             android:textSize="24sp"
             android:text="Edit profile"
@@ -103,6 +100,7 @@
             android:textAllCaps="false"
             android:textColor="@color/colorText"
             android:background="@color/colorGray"
+            android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
             />
 
