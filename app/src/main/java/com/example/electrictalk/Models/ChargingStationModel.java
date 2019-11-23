@@ -3,13 +3,22 @@ package com.example.electrictalk.Models;
 import android.graphics.PointF;
 import android.location.Location;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ChargingStationModel {
+    @SerializedName("name")
     public String name;
+    @SerializedName("totalSockets")
     private int totalSockets;
+    @SerializedName("freeSockets")
     private int freeSockets;
+    @SerializedName("location")
     private PointF location;
+    @SerializedName("userId")
     private String userId;
+    @SerializedName("oldStationId")
     private String oldStationId;
+    @SerializedName("id")
     private String id;
 
     public ChargingStationModel() {

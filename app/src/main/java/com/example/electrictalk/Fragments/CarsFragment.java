@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.electrictalk.Activities.AddCarActivity;
 import com.example.electrictalk.Adapters.CarsAdapter;
+import com.example.electrictalk.Helpers.HttpClientManager;
+import com.example.electrictalk.Helpers.StorageHelper;
 import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,12 +36,14 @@ public class CarsFragment extends Fragment {
         initializeViews(rootView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
-        // Inflate the layout for this fragment
-        carList.add(new CarModel("Panda", "FIAT", 20));
-        carList.add(new CarModel("Focus", "FORD", 40));
-        carList.add(new CarModel("A4", "AUDI", 50));
-        carList.add(new CarModel("Model S", "Tesla", 50));
+        populateRecycler();
 
+        return rootView;
+    }
+
+    private void populateRecycler()
+    {
+        carList = StorageHelper.MyCarList;
         carsAdapter = new CarsAdapter(carList,getContext());
         recyclerView.setAdapter(carsAdapter);
 
@@ -49,8 +53,6 @@ public class CarsFragment extends Fragment {
                 startActivity(new Intent(getActivity(), AddCarActivity.class));
             }
         });
-
-        return rootView;
     }
 
     public CarsFragment() {

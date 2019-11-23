@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -154,21 +155,24 @@ public class HttpClientManager {
 
     public void getCars(final OnDataReceived<List<CarModel>> callback)
     {
-        Call tokens = service.getCars();
-        tokens.enqueue(new Callback() {
+        Call<List<CarModel>> tokens = service.getCars();
+        tokens.enqueue(new Callback<List<CarModel>>() {
             @Override
-            public void onResponse(Call call, retrofit2.Response response) {
-                if(response.isSuccessful()) {
-                    Object a = response.body();
-//                    callback.dataReceived(a);
+            public void onResponse(Call<List<CarModel>> call, retrofit2.Response<List<CarModel>> response) {
+                if (response.isSuccessful())
+                {
+                    List<CarModel> carModelList = new ArrayList<>();
+                    carModelList = response.body();
+                    callback.dataReceived(carModelList);
                 }
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
+            public void onFailure(Call<List<CarModel>> call, Throwable t) {
 
             }
         });
+
     }
 
     public void addStation(String name, int totalSockets, int freeSockets, PointF location, final OnDataReceived<ChargingStationModel> callback)
@@ -179,7 +183,7 @@ public class HttpClientManager {
         map.put("name", name);
         map.put("totalSockets", String.valueOf(totalSockets));
         map.put("freeSockets",  String.valueOf(freeSockets));
-        map.put("location",  toSend);
+        map.put("location",  location.toString());
 
         Call<ChargingStationModel> tokens = service.addStation(map);
         tokens.enqueue(new Callback<ChargingStationModel>() {

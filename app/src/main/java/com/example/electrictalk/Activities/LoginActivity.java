@@ -8,9 +8,12 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.electrictalk.Helpers.HttpClientManager;
+import com.example.electrictalk.Helpers.StorageHelper;
+import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.Models.SignInResponse;
 import com.example.electrictalk.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Response;
@@ -29,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         {
             Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
             startActivity(myInt2);
+            getCars();
         }
         usernameEt.setText("ursan.bernadeta@gmail.com");
         passwordEt.setText("iTEC2019!");
@@ -47,6 +51,22 @@ public class LoginActivity extends AppCompatActivity {
             public void dataReceived(SignInResponse data) {
                 Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
                 startActivity(myInt2);
+                getCars();
+            }
+
+            @Override
+            public void onFailed() {
+            }
+        });
+    }
+
+    private void getCars()
+    {
+        StorageHelper.MyCarList = new ArrayList<>();
+        HttpClientManager.getInstance().getCars(new HttpClientManager.OnDataReceived<List<CarModel>>() {
+            @Override
+            public void dataReceived(List<CarModel> data) {
+                StorageHelper.MyCarList.addAll(data);
             }
 
             @Override

@@ -1,16 +1,26 @@
 package com.example.electrictalk.Models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.UUID;
 
 public class CarModel {
+    @SerializedName("model")
     private String model;
+    @SerializedName("company")
     private String company;
+    @SerializedName("year")
     private int year;
+    @SerializedName("autonomy")
     private int autonomy;
+    @SerializedName("batteryLeft")
     private int batteryLeft;
+    @SerializedName("lastTechRevision")
     private String lastTechRevision;
+    @SerializedName("userId")
     private UUID userId;
+    @SerializedName("id")
     private UUID id;
 
     public CarModel() {

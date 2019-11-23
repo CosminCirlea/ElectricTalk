@@ -25,9 +25,9 @@ public interface WebApiService {
     @GET("api/Cars")
     Call<List<CarModel>> getCars();
 
-    @POST("api/Cars")
+    @POST("api/Stations")
     Call<ChargingStationModel> addStation(@Body Map<String, String> map);
 
-//    @GET("api/Auth/Login")
-//    Call<WebResponse<List>> GetTokensByLocation(@QueryMap Map<String, String> map);
+    @GET("api/Stations")
+    Call<List<ChargingStationModel>> getStations();
 }
