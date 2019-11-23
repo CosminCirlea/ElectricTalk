@@ -268,9 +268,6 @@ public class HttpClientManager {
 
     public void getCar(UUID id, final OnDataReceived<CarModel> callback)
     {
-        Map<String, String> map = new HashMap<>();
-        map.put("id", id.toString());
-
         Call<CarModel> tokens = service.getCar(id);
         tokens.enqueue(new Callback<CarModel>() {
             @Override

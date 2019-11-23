@@ -11,6 +11,7 @@ import com.example.electrictalk.Helpers.HttpClientManager;
 import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.R;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.UUID;
 
@@ -66,6 +67,9 @@ public class OneCarActivity extends AppCompatActivity {
 
     public void OnEditCar(View view) {
         Intent myInt2= new Intent(OneCarActivity.this,EditCarActivity.class);
+        Gson gson = new Gson();
+        String serializedCar = gson.toJson(carModel);
+        myInt2.putExtra("car_model", serializedCar);
         startActivity(myInt2);
     }
 }
