@@ -31,7 +31,6 @@
         <activity android:name=".Activities.HomeActivity" />
         <activity android:name=".Activities.EditProfileActivity" />
         <activity android:name=".Activities.SignupActivity" />
-        <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Activities.LoginActivity">
             <intent-filter>

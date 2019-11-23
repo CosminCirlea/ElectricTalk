@@ -20,37 +20,6 @@
             android:scaleType="centerCrop"
             />
 
-        <LinearLayout
-            android:id="@+id/ll_edit_container"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="200dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/iv_icon"
-            android:layout_marginTop="48dp"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            >
-            <TextView
-                android:id="@+id/tv_photo_details"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
-                android:text="Upload a pic, it will be your profile photo"
-                android:textSize="14sp"
-                android:textColor="@color/colorText"
-                android:gravity="center_horizontal"
-                android:layout_weight="1"
-                />
-
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_icon"
-                />
-
-        </LinearLayout>
-
         <TextView
             android:id="@+id/tv_first_name"
             android:layout_marginStart="20dp"
@@ -58,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FIrst Name"
-            android:layout_below="@+id/ll_edit_container"
+            android:layout_below="@+id/iv_icon"
             android:layout_marginTop="48dp"
             android:textSize="18sp"
             android:textColor="@color/colorText"
