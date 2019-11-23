@@ -37,8 +37,11 @@ public interface WebApiService {
     @GET("api/Cars/{id}")
     Call<CarModel> getCar(@Path(value = "id") UUID id);
 
+//    @PATCH("api/Cars/{id}")
+//    Call<CarModel> updateCar(@Path(value = "id") UUID id, CarModel car);
+
     @PATCH("api/Cars/{id}")
-    Call<CarModel> updateCar(@Path(value = "id") UUID id, CarModel car);
+    Call<CarModel> updateCar(@Path(value = "id") UUID id, @Body CarModel car);
 
     @DELETE("api/Cars/{id}")
     Call<Object> deleteCar(@Path(value = "id") UUID id);
