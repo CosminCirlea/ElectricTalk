@@ -10,6 +10,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_add_topics"
+            android:textSize="24sp"
+            android:src="@drawable/ic_add_black_24dp"
+            android:textAllCaps="false"
+            android:layout_below="@+id/rv_listed_topics"
+            android:textColor="@color/colorText"
+            android:background="@color/colorGray"
+            android:layout_margin="20dp"
+            android:layout_alignParentRight="true"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_delete"
+            android:textSize="24sp"
+            android:src="@drawable/ic_delete"
+            android:textAllCaps="false"
+            android:textColor="@color/colorText"
+            android:background="@color/colorGray"
+            android:backgroundTint="@color/colorRed"
+            android:layout_margin="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/rv_listed_topics"
+            />
+        //de verificat daca topicul ales a fi sters este creat de cel care vrea sa il stearga, daca nu sa apara un mesaj
+
         //sa punem sus ca titlu numele categoriei
 
         <ImageView
@@ -28,6 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             />
+
+
 
     </RelativeLayout>
 
