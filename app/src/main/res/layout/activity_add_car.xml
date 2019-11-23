@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_icon"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/tv_company"
@@ -32,15 +32,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:textStyle="bold"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="60dp"
             android:text="Company"
             android:textColor="@color/colorText"
-            android:textSize="22sp"
+            android:textSize="14sp"
             android:layout_marginStart="20dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/btn_delete"
-            android:layout_marginBottom="6dp"
             />
 
         <EditText
@@ -48,14 +47,14 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_below="@+id/tv_company"
             android:singleLine="true"
-            android:textSize="22sp"
+            android:textSize="16sp"
             android:padding="6dp"
             android:textColor="@color/colorText"
             android:backgroundTint="@color/colorGray"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="4dp"
             />
 
         <TextView
@@ -67,11 +66,11 @@
             android:layout_marginEnd="60dp"
             android:text="Model"
             android:textColor="@color/colorText"
-            android:textSize="22sp"
+            android:textSize="14sp"
             android:layout_marginStart="20dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/et_company"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="2dp"
             />
 
         <EditText
@@ -79,14 +78,14 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_below="@+id/tv_model"
             android:singleLine="true"
-            android:textSize="22sp"
+            android:textSize="16sp"
             android:padding="6dp"
             android:textColor="@color/colorText"
             android:backgroundTint="@color/colorGray"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="4dp"
             />
 
         <TextView
@@ -98,11 +97,11 @@
             android:layout_marginEnd="60dp"
             android:text="Battery Left"
             android:textColor="@color/colorText"
-            android:textSize="22sp"
+            android:textSize="14sp"
             android:layout_marginStart="20dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/et_model"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="2dp"
             />
 
         <EditText
@@ -110,28 +109,28 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_below="@+id/tv_batteryLeft"
             android:singleLine="true"
-            android:textSize="22sp"
+            android:textSize="16sp"
             android:padding="6dp"
             android:textColor="@color/colorText"
             android:backgroundTint="@color/colorGray"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="4dp"
             />
 
         <TextView
             android:id="@+id/tv_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
+            android:textSize="14sp"
             android:layout_marginStart="20dp"
             android:layout_alignParentStart="true"
             android:text= "Year"
             android:textStyle="bold"
             android:layout_below="@+id/et_batteryLeft"
             android:textColor="@color/colorText"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="2dp"
             />
 
         <EditText
@@ -139,28 +138,28 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_below="@+id/tv_year"
             android:singleLine="true"
-            android:textSize="22sp"
+            android:textSize="16sp"
             android:padding="6dp"
             android:textColor="@color/colorText"
             android:backgroundTint="@color/colorGray"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="4dp"
             />
 
         <TextView
             android:id="@+id/tv_autonomy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
+            android:textSize="14sp"
             android:layout_marginStart="20dp"
             android:layout_alignParentStart="true"
             android:text= "Autonomy"
             android:textStyle="bold"
             android:layout_below="@+id/et_year"
             android:textColor="@color/colorText"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="2dp"
             />
 
         <EditText
@@ -168,28 +167,28 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_below="@+id/tv_autonomy"
             android:singleLine="true"
-            android:textSize="22sp"
+            android:textSize="16sp"
             android:padding="6dp"
             android:textColor="@color/colorText"
             android:backgroundTint="@color/colorGray"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="4dp"
             />
 
         <TextView
             android:id="@+id/tv_revision"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:layout_marginStart="20dp"
             android:layout_alignParentStart="true"
             android:text= "Last tech revision"
             android:layout_below="@+id/et_autonomy"
             android:textColor="@color/colorText"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="2dp"
             />
 
         <EditText
@@ -197,13 +196,14 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_below="@+id/tv_revision"
             android:singleLine="true"
-            android:textSize="22sp"
+            android:textSize="16sp"
             android:padding="6dp"
             android:textColor="@color/colorText"
             android:backgroundTint="@color/colorGray"
+            android:layout_marginTop="4dp"
             />
 
         <Button
@@ -219,7 +219,7 @@
             android:textAllCaps="false"
             android:textColor="@color/colorText"
             android:layout_marginBottom="20dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/border"
             android:onClick="addCar"
             />
