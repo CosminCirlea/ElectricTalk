@@ -21,7 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.EditCarActivity"></activity>
+        <activity android:name=".Activities.MessagesActivity"></activity>
+        <activity android:name=".Activities.TopicsActivity" />
+        <activity android:name=".Activities.EditCarActivity" />
         <activity android:name=".Activities.AddStationActivity" />
         <activity android:name=".Activities.AddCarActivity" />
         <activity android:name=".Activities.OneCarActivity" />
