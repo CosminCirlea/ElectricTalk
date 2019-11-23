@@ -49,10 +49,11 @@ public class EditCarActivity extends AppCompatActivity {
 
     private void getCarUpdate()
     {
+        String lastRevision = revisionEt.getText().toString().concat("T00:00:00.159Z");
         car.setCompany(companyEt.getText().toString());
         car.setModel(modelEt.getText().toString());
         car.setYear(Integer.valueOf(yearEt.getText().toString()));
-        car.setLastTechRevision(revisionEt.getText().toString());
+        car.setLastTechRevision(lastRevision);
         car.setBatteryLeft(Integer.valueOf(batteryEt.getText().toString()));
         car.setAutonomy(Integer.valueOf(autonomyEt.getText().toString()));
     }
@@ -81,7 +82,5 @@ public class EditCarActivity extends AppCompatActivity {
 
             }
         });
-//        Intent myInt2= new Intent(EditCarActivity.this,OneCarActivity.class);
-//        startActivity(myInt2);
     }
 }

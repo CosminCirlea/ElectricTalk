@@ -38,8 +38,6 @@ public class LoginActivity extends AppCompatActivity {
             getCars();
             getStations();
             getProfileData();
-            Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
-            startActivity(myInt2);
         }
     }
 
@@ -54,11 +52,10 @@ public class LoginActivity extends AppCompatActivity {
         HttpClientManager.getInstance().Login(username, password, new HttpClientManager.OnDataReceived<SignInResponse>() {
             @Override
             public void dataReceived(SignInResponse data) {
+                HttpClientManager.Token = data.token;
                 getCars();
                 getStations();
                 getProfileData();
-                Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
-                startActivity(myInt2);
             }
 
             @Override
@@ -107,6 +104,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void dataReceived(UserModel data) {
                 StorageHelper.myUser = data;
+                Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
+                startActivity(myInt2);
             }
 
             @Override
