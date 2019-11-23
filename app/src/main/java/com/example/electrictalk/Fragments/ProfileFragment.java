@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.electrictalk.Enums.ActivityType;
 import com.example.electrictalk.Helpers.HttpClientManager;
 import com.example.electrictalk.Helpers.StorageHelper;
 import com.example.electrictalk.Models.UserModel;
@@ -21,6 +22,7 @@ public class ProfileFragment extends Fragment {
     private EditText lastName, firstName;
     private Button update;
     private String firstname, lastname;
+    private ActivityType activityType;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,10 +32,10 @@ public class ProfileFragment extends Fragment {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getData();
                 HttpClientManager.getInstance().updateProfile(firstname, lastname, new HttpClientManager.OnDataReceived<UserModel>() {
                     @Override
                     public void dataReceived(UserModel data) {
+                        StorageHelper.myUser = data;
                     }
 
                     @Override
@@ -43,23 +45,37 @@ public class ProfileFragment extends Fragment {
                 });
             }
         });
+        setTexts();
+        setVisibility(ActivityType.DETAILS);
 
         return view;
     }
 
-    private void getData()
+    private void setVisibility(ActivityType activityType)
     {
-        firstname = firstName.getText().toString();
-        lastname = lastName.getText().toString();
+        switch (activityType)
+        {
+            case DETAILS:
+                lastName.setEnabled(false);
+                firstName.setEnabled(false);
+                break;
+            case EDIT:
+                lastName.setEnabled(true);
+                firstName.setEnabled(false);
+                break;
+        }
+    }
+
+    private void setTexts()
+    {
+        lastName.setText(StorageHelper.myUser.getName());
+        firstName.setText(StorageHelper.myUser.getFirstname());
     }
 
     private void InitializeViews(View view){
         lastName = view.findViewById(R.id.et_last_name);
         firstName = view.findViewById(R.id.et_first_name);
         update = view.findViewById(R.id.btn_edit);
-
-        lastName.setText(StorageHelper.myUser.getName());
-        firstName.setText(StorageHelper.myUser.getFirstname());
     }
 
 }

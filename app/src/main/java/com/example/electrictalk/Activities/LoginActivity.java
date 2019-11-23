@@ -30,16 +30,17 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initializeViews();
 
+        usernameEt.setText("ursan.bernadeta@gmail.com");
+        passwordEt.setText("iTEC2019!");
+
         if (!HttpClientManager.Token.equals(""))
         {
-            Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
-            startActivity(myInt2);
             getCars();
             getStations();
             getProfileData();
+            Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
+            startActivity(myInt2);
         }
-        usernameEt.setText("ursan.bernadeta@gmail.com");
-        passwordEt.setText("iTEC2019!");
     }
 
     public void OnSignUp(View view) {
@@ -53,11 +54,11 @@ public class LoginActivity extends AppCompatActivity {
         HttpClientManager.getInstance().Login(username, password, new HttpClientManager.OnDataReceived<SignInResponse>() {
             @Override
             public void dataReceived(SignInResponse data) {
-                Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
-                startActivity(myInt2);
                 getCars();
                 getStations();
                 getProfileData();
+                Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
+                startActivity(myInt2);
             }
 
             @Override
@@ -106,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void dataReceived(UserModel data) {
                 StorageHelper.myUser = data;
+
             }
 
             @Override
