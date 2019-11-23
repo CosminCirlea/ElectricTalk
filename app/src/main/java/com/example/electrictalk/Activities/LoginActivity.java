@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initializeViews()
     {
-        usernameEt = findViewById(R.id.et_username);
+        usernameEt = findViewById(R.id.et_email);
         passwordEt = findViewById(R.id.et_password);
     }
 }

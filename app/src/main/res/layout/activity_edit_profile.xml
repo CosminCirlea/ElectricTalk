@@ -52,7 +52,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_phone"
+            android:id="@+id/tv_name"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="wrap_content"
@@ -65,47 +65,48 @@
             />
 
         <EditText
-            android:id="@+id/et_phone"
+            android:id="@+id/et_name"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_phone"
+            android:layout_below="@+id/tv_name"
             android:singleLine="true"
             android:layout_marginTop="16dp"
             android:inputType="textPersonName"
             android:textSize="22sp"
             android:padding="6dp"
             android:textColor="@color/colorText"
-            android:background="@color/colorGray"
+            android:backgroundTint="@color/colorGray"
             />
 
         <TextView
-            android:id="@+id/tv_car"
+            android:id="@+id/tv_email"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email"
-            android:layout_below="@+id/et_phone"
+            android:layout_below="@+id/et_name"
             android:layout_marginTop="16dp"
             android:textSize="18sp"
             android:textColor="@color/colorText"
             />
 
         <EditText
-            android:id="@+id/et_car"
+            android:id="@+id/et_email"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_car"
+            android:layout_below="@+id/tv_email"
             android:singleLine="true"
             android:layout_marginTop="16dp"
+            android:inputType="textPersonName"
             android:textSize="22sp"
             android:padding="6dp"
             android:textColor="@color/colorText"
-            android:background="@color/colorGray"
+            android:backgroundTint="@color/colorGray"
             />
 
         <Button
@@ -113,15 +114,15 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_car"
+            android:layout_height="60dp"
+            android:layout_below="@+id/et_email"
             android:layout_marginTop="32dp"
             android:textSize="24sp"
             android:text="Save profile"
             android:padding="6dp"
             android:textAllCaps="false"
             android:textColor="@color/colorText"
-            android:background="@color/colorButton"
+            android:background="@color/colorGray"
             android:layout_marginBottom="20dp"
             />
 
