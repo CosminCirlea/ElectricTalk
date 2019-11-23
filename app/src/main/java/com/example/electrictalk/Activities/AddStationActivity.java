@@ -19,6 +19,7 @@ public class AddStationActivity extends BaseAppCompat {
     private EditText nameEt, totalSocketsEt, freeSocketsEt,latitudeEt, longitudeEt;
     private String name;
     private FloatingActionButton editBtn, deleteBtn;
+    private Button addStationBtn;
     private int freeSockets, totalSockets;
     private float latitude, longitude;
     private ChargingStationModel station;
@@ -52,12 +53,13 @@ public class AddStationActivity extends BaseAppCompat {
         freeSocketsEt.setEnabled(false);
         latitudeEt.setEnabled(false);
         longitudeEt.setEnabled(false);
+        addStationBtn.setVisibility(View.GONE);
 
-        if (!station.getUserId().equals(StorageHelper.myUser.getId().toString()))
-        {
-            deleteBtn.setEnabled(false);
-            editBtn.setEnabled(false);
-        }
+//        if (!station.getUserId().equals(StorageHelper.myUser.getId().toString()))
+//        {
+//            deleteBtn.setEnabled(false);
+//            editBtn.setEnabled(false);
+//        }
     }
 
     public void addStation(View view) {
@@ -95,5 +97,6 @@ public class AddStationActivity extends BaseAppCompat {
         longitudeEt = findViewById(R.id.et_add_station_location_long);
         editBtn = findViewById(R.id.btn_edit);
         deleteBtn = findViewById(R.id.btn_delete);
+        addStationBtn = findViewById(R.id.btn_add_station);
     }
 }

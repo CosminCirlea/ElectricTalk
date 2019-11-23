@@ -77,7 +77,7 @@ public class HttpClientManager {
                 setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
                 .create();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.6.62:5030/")
+                .baseUrl("http://192.168.1.5:5030/")
 
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(httpClient.build())
