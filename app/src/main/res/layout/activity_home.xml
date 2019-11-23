@@ -21,7 +21,7 @@
             android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/toolbarColor"
+            android:background="@color/colorGray"
             android:layout_alignParentBottom="true"
             app:itemIconTint="@color/colorText"
             app:itemTextColor="@color/colorText"
