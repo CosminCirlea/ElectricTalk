@@ -1,10 +1,15 @@
 package com.example.electrictalk.Models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.UUID;
 
 public class UserModel {
+    @SerializedName("firstName")
     private String firstname;
+    @SerializedName("lastName")
     private String name;
+    @SerializedName("email")
     private String email;
     private String password;
     private UUID id;

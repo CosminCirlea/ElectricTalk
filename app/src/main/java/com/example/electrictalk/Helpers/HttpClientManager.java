@@ -246,4 +246,23 @@ public class HttpClientManager {
             }
         });
     }
+
+    public void getProfileData(final OnDataReceived<UserModel> callback)
+    {
+        Call<UserModel> tokens = service.getProfileData();
+        tokens.enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, retrofit2.Response<UserModel> response) {
+                if(response.isSuccessful()) {
+                    UserModel aux = response.body();
+                    callback.dataReceived(aux);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+
+            }
+        });
+    }
 }
