@@ -1,13 +1,17 @@
 package com.example.electrictalk.Activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.electrictalk.Helpers.HttpClientManager;
+import com.example.electrictalk.Helpers.StorageHelper;
 import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.R;
 import com.google.gson.Gson;
@@ -16,7 +20,6 @@ import com.google.gson.GsonBuilder;
 import java.util.UUID;
 
 public class OneCarActivity extends AppCompatActivity {
-
     private TextView companyNameTv, modelNameTv, batteryTv, yearTv, autonomyTv, lastRevisionTv;
     private UUID carId;
     private CarModel carModel;
@@ -72,5 +75,47 @@ public class OneCarActivity extends AppCompatActivity {
         String serializedCar = gson.toJson(carModel);
         myInt2.putExtra("car_model", serializedCar);
         startActivity(myInt2);
+    }
+
+    public void deleteCar(View view) {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setMessage("Are you sure you want to delete this car?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        HttpClientManager.getInstance().deleteCar(carId, new HttpClientManager.OnDataReceived() {
+                            @Override
+                            public void dataReceived(Object data) {
+                                for (CarModel car : StorageHelper.MyCarList) {
+                                    if (car.getId().equals(carId))
+                                    {
+                                        StorageHelper.MyCarList.remove(car);
+                                    }
+                                }
+                                Toast.makeText(OneCarActivity.this, "Car deleted!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+
+                            @Override
+                            public void onFailed() {
+
+                            }
+                        });
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
     }
 }

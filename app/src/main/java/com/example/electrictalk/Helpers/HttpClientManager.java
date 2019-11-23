@@ -2,6 +2,7 @@ package com.example.electrictalk.Helpers;
 
 import android.graphics.PointF;
 import android.location.Location;
+import android.widget.Toast;
 
 import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.Models.ChargingStationModel;
@@ -283,6 +284,42 @@ public class HttpClientManager {
 
             }
         });
+    }
 
+    public void updateCar(UUID id, CarModel car, final OnDataReceived<CarModel> callback)
+    {
+        Call<CarModel> tokens = service.updateCar(id,car);
+        tokens.enqueue(new Callback<CarModel>() {
+            @Override
+            public void onResponse(Call<CarModel> call, retrofit2.Response<CarModel> response) {
+                if(response.isSuccessful()) {
+                    CarModel aux = response.body();
+                    callback.dataReceived(aux);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CarModel> call, Throwable t) {
+            }
+        });
+    }
+
+    public void deleteCar(UUID id, final OnDataReceived<Object> callback)
+    {
+        Call tokens = service.deleteCar(id);
+        tokens.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, retrofit2.Response response) {
+                if(response.isSuccessful()) {
+                    Object aux = response.body();
+                    callback.dataReceived(aux);
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
     }
 }

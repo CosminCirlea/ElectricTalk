@@ -36,9 +36,13 @@ public class CarsFragment extends Fragment {
         initializeViews(rootView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
-        populateRecycler();
-
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        populateRecycler();
     }
 
     private void populateRecycler()

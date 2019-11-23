@@ -58,7 +58,7 @@
             android:textStyle="bold"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="60dp"
-            android:text="Battery Left"
+            android:text="Battery Left(%)"
             android:textColor="@color/colorText"
             android:textSize="22sp"
             android:layout_marginStart="20dp"

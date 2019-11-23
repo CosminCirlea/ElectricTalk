@@ -48,6 +48,7 @@
                 android:backgroundTint="@color/colorRed"
                 android:layout_margin="20dp"
                 android:layout_alignParentLeft="true"
+                android:onClick="deleteCar"
                 />
 
         <TextView

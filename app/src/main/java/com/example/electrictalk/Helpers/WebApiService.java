@@ -11,7 +11,9 @@ import java.util.UUID;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -34,6 +36,12 @@ public interface WebApiService {
 
     @GET("api/Cars/{id}")
     Call<CarModel> getCar(@Path(value = "id") UUID id);
+
+    @PATCH("api/Cars/{id}")
+    Call<CarModel> updateCar(@Path(value = "id") UUID id, CarModel car);
+
+    @DELETE("api/Cars/{id}")
+    Call<Object> deleteCar(@Path(value = "id") UUID id);
 
     @GET("api/Cars")
     Call<List<CarModel>> getCars();
