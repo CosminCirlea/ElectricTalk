@@ -2,8 +2,10 @@ package com.example.electrictalk.Activities;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import com.example.electrictalk.Helpers.HttpClientManager;
+import com.example.electrictalk.Helpers.StorageHelper;
 import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.LocationModel;
 import com.example.electrictalk.R;
@@ -11,23 +13,28 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class AddStationActivity extends BaseAppCompat {
     private LatLng position;
+    private EditText nameEt, totalSocketsEt, freeSocketsEt,latitudeEt, longitudeEt;
+    private String name;
+    private int freeSockets, totalSockets;
+    private float latitude, longitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_station);
         super.SetToolbarTitle("Station");
+        initializeViews();
 
-        Bundle bundle = getIntent().getParcelableExtra("positionBundle");
-        position = bundle.getParcelable("position");
+
     }
 
     public void addStation(View view) {
-        LocationModel locationModel = new LocationModel((float)position.latitude,(float)position.longitude);
-
-        HttpClientManager.getInstance().addStation("Station test", 5, 1, locationModel, new HttpClientManager.OnDataReceived<ChargingStationModel>() {
+        getData();
+        LocationModel locationModel = new LocationModel(latitude,longitude);
+        HttpClientManager.getInstance().addStation(name, totalSockets, freeSockets, locationModel, new HttpClientManager.OnDataReceived<ChargingStationModel>() {
             @Override
             public void dataReceived(ChargingStationModel data) {
-                int a =0;
+                StorageHelper.myStationsList.add(data);
+                finish();
             }
 
             @Override
@@ -35,5 +42,23 @@ public class AddStationActivity extends BaseAppCompat {
 
             }
         });
+    }
+
+    private void getData()
+    {
+        name = nameEt.getText().toString();
+        freeSockets = Integer.valueOf(freeSocketsEt.getText().toString());
+        totalSockets = Integer.valueOf(totalSocketsEt.getText().toString());
+        latitude = Float.valueOf(latitudeEt.getText().toString());
+        longitude = Float.valueOf(longitudeEt.getText().toString());
+    }
+
+    private void initializeViews()
+    {
+        nameEt = findViewById(R.id.et_add_station_name);
+        totalSocketsEt = findViewById(R.id.et_add_station_total_sockets);
+        freeSocketsEt = findViewById(R.id.et_add_station_free_sockets);
+        latitudeEt = findViewById(R.id.et_add_station_location);
+        longitudeEt = findViewById(R.id.et_add_station_location_long);
     }
 }
