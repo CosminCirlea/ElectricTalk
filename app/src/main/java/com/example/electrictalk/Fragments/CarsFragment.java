@@ -1,6 +1,8 @@
 package com.example.electrictalk.Fragments;
 
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +23,10 @@ import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -48,18 +54,25 @@ public class CarsFragment extends Fragment {
         super.onResume();
         populateRecycler();
 
-        Calendar cal = Calendar.getInstance();
-        Date today = cal.getTime();
-        cal.add(Calendar.YEAR, -1); // to get previous year add -1
-        Date nextYear = cal.getTime();
-
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM");
-        String currentDate = formatter.format(nextYear);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
+        Calendar calendar= Calendar.getInstance();
+        calendar.add(Calendar.YEAR, -1);
+        Date date = calendar.getTime();
+        String currentDate = dateFormat.format(date);
 
         for (CarModel car : StorageHelper.MyCarList) {
-            if (car.getLastTechRevision().contains(currentDate))
+            if (car.getLastTechRevision().compareTo(currentDate) < 0)
             {
-                Toast.makeText(getContext(), "Please check ".concat(car.getModel()), Toast.LENGTH_SHORT).show();
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext(), "someId")
+                        .setSmallIcon(R.drawable.ic_notification)
+                        .setContentTitle("Car might need checking")
+                        .setContentText("Please check this car: ".concat(car.getModel()))
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+                NotificationManager mNotificationManager =
+
+                (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.notify(001, builder.build());
             }
         }
     }
