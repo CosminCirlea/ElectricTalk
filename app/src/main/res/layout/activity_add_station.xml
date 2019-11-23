@@ -124,9 +124,9 @@
         android:text="Add station"
         android:textAllCaps="false"
         android:textColor="@color/colorText"
-        android:background="@color/colorGray"
         android:layout_margin="20dp"
         android:layout_below="@+id/et_add_station_location"
+        android:background="@drawable/border"
         />
     </RelativeLayout>
     </RelativeLayout>
