@@ -24,21 +24,17 @@ public class AddCarActivity extends BaseAppCompat {
     }
 
     public void addCar(View view) {
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
-        Date date = new Date(System.currentTimeMillis());
-        System.out.println(formatter.format(date));
-
         String company = companyEt.getText().toString();
         String model = modelEt.getText().toString();
         int battery = Integer.valueOf(batteryEt.getText().toString());
         int autonomy = Integer.valueOf(autonomyEt.getText().toString());
         int year = Integer.valueOf(yearEt.getText().toString());
-        String lastRevision = lastTechEt.getText().toString();
+        String lastRevision = lastTechEt.getText().toString().concat("T00:00:00.159Z");
 
-
-        HttpClientManager.getInstance().addCar(model, company, year, autonomy, battery,"2019-11-23T08:30:04.093Z", new HttpClientManager.OnDataReceived<CarModel>() {
+        HttpClientManager.getInstance().addCar(model, company, year, autonomy, battery, lastRevision, new HttpClientManager.OnDataReceived<CarModel>() {
             @Override
             public void dataReceived(CarModel data) {
+                finish();
                 StorageHelper.MyCarList.add(data);
             }
 

@@ -45,10 +45,15 @@ public class ProfileFragment extends Fragment {
                 });
             }
         });
-        setTexts();
         setVisibility(ActivityType.DETAILS);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setTexts();
     }
 
     private void setVisibility(ActivityType activityType)
