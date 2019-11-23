@@ -1,6 +1,11 @@
 package com.example.electrictalk.Helpers;
 
+import android.graphics.PointF;
+import android.location.Location;
+
 import com.example.electrictalk.Models.CarModel;
+import com.example.electrictalk.Models.ChargingStationModel;
+import com.example.electrictalk.Models.LocationModel;
 import com.example.electrictalk.Models.SignInResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -165,6 +170,32 @@ public class HttpClientManager {
 
             }
         });
+    }
 
+    public void addStation(String name, int totalSockets, int freeSockets, PointF location, final OnDataReceived<ChargingStationModel> callback)
+    {
+        Gson gson = new Gson();
+        String toSend = gson.toJson(location);
+        Map<String, String> map = new HashMap<>();
+        map.put("name", name);
+        map.put("totalSockets", String.valueOf(totalSockets));
+        map.put("freeSockets",  String.valueOf(freeSockets));
+        map.put("location",  toSend);
+
+        Call<ChargingStationModel> tokens = service.addStation(map);
+        tokens.enqueue(new Callback<ChargingStationModel>() {
+            @Override
+            public void onResponse(Call<ChargingStationModel> call, retrofit2.Response<ChargingStationModel> response) {
+                if(response.isSuccessful()) {
+                    ChargingStationModel a = response.body();
+                    callback.dataReceived(a);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ChargingStationModel> call, Throwable t) {
+
+            }
+        });
     }
 }

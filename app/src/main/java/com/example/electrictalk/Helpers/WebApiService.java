@@ -1,6 +1,7 @@
 package com.example.electrictalk.Helpers;
 
 import com.example.electrictalk.Models.CarModel;
+import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.SignInResponse;
 
 import java.util.List;
@@ -23,6 +24,9 @@ public interface WebApiService {
 
     @GET("api/Cars")
     Call<List<CarModel>> getCars();
+
+    @POST("api/Cars")
+    Call<ChargingStationModel> addStation(@Body Map<String, String> map);
 
 //    @GET("api/Auth/Login")
 //    Call<WebResponse<List>> GetTokensByLocation(@QueryMap Map<String, String> map);

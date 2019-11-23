@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AddStationActivity">
+
+    <include layout="@layout/toolbar_with_back_button"/>
+
+    <EditText
+        android:id="@+id/et_add_station_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_below="@+id/toolbar_with_back_button"/>
+
+    <EditText
+        android:id="@+id/et_add_station_total_sockets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Total sockets"
+        android:layout_below="@+id/et_add_station_name"/>
+
+    <EditText
+        android:id="@+id/et_add_station_free_sockets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Free sockets"
+        android:layout_below="@+id/et_add_station_total_sockets"/>
+
+    <EditText
+        android:id="@+id/et_add_station_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Location"
+        android:layout_below="@+id/et_add_station_free_sockets"/>
+
+    <Button
+        android:id="@+id/btn_add_station"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ff0000"
+        android:layout_margin="20dp"
+        android:onClick="addStation"/>
+
+</RelativeLayout>
