@@ -92,8 +92,8 @@
             android:padding="6dp"
             android:textAllCaps="false"
             android:textColor="@color/colorText"
-            android:background="@color/colorGray"
             android:onClick="OnSignIn"
+            android:background="@drawable/border"
             />
 
         <TextView

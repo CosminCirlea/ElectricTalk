@@ -197,9 +197,9 @@
             android:padding="6dp"
             android:textAllCaps="false"
             android:textColor="@color/colorText"
-            android:background="@color/colorGray"
             android:layout_marginBottom="20dp"
             android:onClick="OnSaveCar"
+            android:background="@drawable/border"
             />
         
     </RelativeLayout>
