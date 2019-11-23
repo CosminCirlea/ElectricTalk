@@ -53,78 +53,153 @@
                 android:layout_alignParentLeft="true"
                 />
 
+            <TextView
+                android:id="@+id/tv_add_station_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:layout_below="@+id/btn_edit"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:textColor="@color/colorText"
+                android:backgroundTint="@color/colorGray"
+                android:layout_marginBottom="6dp"
+                />
 
             <EditText
                 android:id="@+id/et_add_station_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name"
-                android:layout_below="@+id/btn_edit"
+                android:layout_below="@+id/tv_add_station_name"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:singleLine="true"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:padding="6dp"
                 android:textColor="@color/colorText"
                 android:backgroundTint="@color/colorGray"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="6dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_add_station_total_sockets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total sockets"
+                android:layout_below="@+id/et_add_station_name"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:textColor="@color/colorText"
+                android:backgroundTint="@color/colorGray"
+                android:layout_marginBottom="6dp"
                 />
 
             <EditText
                 android:id="@+id/et_add_station_total_sockets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Total sockets"
-                android:layout_below="@+id/et_add_station_name"
+                android:layout_below="@+id/tv_add_station_total_sockets"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:singleLine="true"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:padding="6dp"
                 android:textColor="@color/colorText"
                 android:backgroundTint="@color/colorGray"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_add_station_free_sockets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Free sockets"
+                android:layout_below="@+id/et_add_station_total_sockets"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:textColor="@color/colorText"
+                android:backgroundTint="@color/colorGray"
+                android:layout_marginBottom="6dp"
+                />
 
             <EditText
                 android:id="@+id/et_add_station_free_sockets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Free sockets"
-                android:layout_below="@+id/et_add_station_total_sockets"
+                android:layout_below="@+id/tv_add_station_free_sockets"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:singleLine="true"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:padding="6dp"
                 android:textColor="@color/colorText"
                 android:backgroundTint="@color/colorGray"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="6dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_add_station_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total sockets"
+                android:layout_below="@+id/et_add_station_free_sockets"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:textColor="@color/colorText"
+                android:backgroundTint="@color/colorGray"
+                android:layout_marginBottom="6dp"
+                />
 
             <EditText
                 android:id="@+id/et_add_station_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Latitude"
-                android:layout_below="@+id/et_add_station_free_sockets"
+                android:layout_below="@+id/tv_add_station_location"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:singleLine="true"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:padding="6dp"
                 android:textColor="@color/colorText"
                 android:backgroundTint="@color/colorGray"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_add_station_location_long"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total sockets"
+                android:layout_below="@+id/et_add_station_location"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:textColor="@color/colorText"
+                android:backgroundTint="@color/colorGray"
+                android:layout_marginBottom="6dp"
+                />
 
             <EditText
                 android:id="@+id/et_add_station_location_long"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Longitude"
-                android:layout_below="@+id/et_add_station_location"
+                android:layout_below="@+id/tv_add_station_location_long"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:singleLine="true"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:padding="6dp"
                 android:textColor="@color/colorText"
                 android:backgroundTint="@color/colorGray"
