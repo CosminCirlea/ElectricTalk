@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -261,8 +262,30 @@ public class HttpClientManager {
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
+            }
+        });
+    }
+
+    public void getCar(UUID id, final OnDataReceived<CarModel> callback)
+    {
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id.toString());
+
+        Call<CarModel> tokens = service.getCar(map);
+        tokens.enqueue(new Callback<CarModel>() {
+            @Override
+            public void onResponse(Call<CarModel> call, retrofit2.Response<CarModel> response) {
+                if(response.isSuccessful()) {
+                    CarModel aux = response.body();
+                    callback.dataReceived(aux);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CarModel> call, Throwable t) {
 
             }
         });
+
     }
 }

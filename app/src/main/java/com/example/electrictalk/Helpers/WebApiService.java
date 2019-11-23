@@ -7,6 +7,7 @@ import com.example.electrictalk.Models.UserModel;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -28,6 +29,9 @@ public interface WebApiService {
 
     @POST("api/Cars")
     Call<CarModel> addCar(@Body Map<String, String> map);
+
+    @POST("api/Cars/{id}")
+    Call<CarModel> getCar(@Body Map<String, String> map);
 
     @GET("api/Cars")
     Call<List<CarModel>> getCars();
