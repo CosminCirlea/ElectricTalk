@@ -51,4 +51,7 @@ public interface WebApiService {
 
     @GET("api/Stations")
     Call<List<ChargingStationModel>> getStations();
+
+    @POST("api/Stations/{id}/Delete")
+    Call<ChargingStationModel> deleteStation(@Path(value = "id") UUID id);
 }

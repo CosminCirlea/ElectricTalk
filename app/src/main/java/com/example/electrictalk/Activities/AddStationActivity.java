@@ -1,18 +1,25 @@
 package com.example.electrictalk.Activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.example.electrictalk.Helpers.HttpClientManager;
 import com.example.electrictalk.Helpers.StorageHelper;
+import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.LocationModel;
 import com.example.electrictalk.R;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
+
+import java.util.UUID;
 
 public class AddStationActivity extends BaseAppCompat {
     private LatLng position;
@@ -38,6 +45,50 @@ public class AddStationActivity extends BaseAppCompat {
         {
             setData(station);
         }
+
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteStation();
+            }
+        });
+    }
+
+    private void deleteStation()
+    {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setMessage("Are you sure you want to delete this car?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        HttpClientManager.getInstance().deleteStation(UUID.fromString(station.getId()), new HttpClientManager.OnDataReceived<ChargingStationModel>() {
+                            @Override
+                            public void dataReceived(ChargingStationModel data) {
+                                finish();
+                                Toast.makeText(AddStationActivity.this, "Station deleted!", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailed() {
+
+                            }
+                        });
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
     }
 
     private void setData(ChargingStationModel station)
