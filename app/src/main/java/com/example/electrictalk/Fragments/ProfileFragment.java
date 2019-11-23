@@ -1,6 +1,7 @@
 package com.example.electrictalk.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.electrictalk.Activities.EditProfileActivity;
+import com.example.electrictalk.Activities.LoginActivity;
+import com.example.electrictalk.Activities.SignupActivity;
 import com.example.electrictalk.Enums.ActivityType;
 import com.example.electrictalk.Helpers.HttpClientManager;
 import com.example.electrictalk.Helpers.StorageHelper;
@@ -32,17 +36,8 @@ public class ProfileFragment extends Fragment {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HttpClientManager.getInstance().updateProfile(firstname, lastname, new HttpClientManager.OnDataReceived<UserModel>() {
-                    @Override
-                    public void dataReceived(UserModel data) {
-                        StorageHelper.myUser = data;
-                    }
-
-                    @Override
-                    public void onFailed() {
-
-                    }
-                });
+                Intent myInt2= new Intent(getActivity(), EditProfileActivity.class);
+                startActivity(myInt2);
             }
         });
         setVisibility(ActivityType.DETAILS);
