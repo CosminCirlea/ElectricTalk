@@ -3,6 +3,10 @@ package com.example.electrictalk.Fragments;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +27,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -57,12 +63,24 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void displayStations(){
+        Drawable circleDrawable = getResources().getDrawable(R.drawable.ic_location);
+
         for (ChargingStationModel station: StorageHelper.myStationsList) {
             Marker marker = googleMap.addMarker(new MarkerOptions()
             .position(new LatLng(station.getLocation().x, station.getLocation().y))
+            .icon(getMarkerIconFromDrawable(circleDrawable))
             .title(station.getName()));
             marker.setTag(station);
         }
+    }
+
+    private BitmapDescriptor getMarkerIconFromDrawable(Drawable drawable) {
+        Canvas canvas = new Canvas();
+        Bitmap bitmap = Bitmap.createBitmap(50, 50, Bitmap.Config.ARGB_8888);
+        canvas.setBitmap(bitmap);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        drawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 
     public MapFragment() {
