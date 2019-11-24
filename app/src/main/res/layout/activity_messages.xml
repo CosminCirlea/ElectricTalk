@@ -8,7 +8,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
+        <include layout="@layout/toolbar_with_back_button"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
@@ -17,7 +19,8 @@
             android:textSize="24sp"
             android:src="@drawable/ic_add_black_24dp"
             android:textAllCaps="false"
-            android:layout_below="@+id/rv_listed_messages"
+            android:layout_above="@+id/rv_listed_messages"
+            android:layout_below="@+id/iv_icon"
             android:textColor="@color/colorText"
             android:background="@color/colorGray"
             android:layout_margin="20dp"
@@ -36,31 +39,25 @@
             android:backgroundTint="@color/colorRed"
             android:layout_margin="20dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/rv_listed_messages"
+            android:layout_below="@+id/iv_icon"
             />
-        //de verificat daca mesajul ales a fi sters este creat de cel care vrea sa il stearga, daca nu sa apara un mesaj
 
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:src="@drawable/ic_top_sigla"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            />
 
-
-        //sa punem sus ca titlu numele topicului
-
-
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:src="@drawable/ic_top_sigla"
-        android:layout_alignParentTop="true"
-        android:scaleType="centerCrop"
-        />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_listed_messages"
-        android:layout_below="@+id/iv_icon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_listed_messages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/btn_delete"
+            />
 
     </RelativeLayout>
 

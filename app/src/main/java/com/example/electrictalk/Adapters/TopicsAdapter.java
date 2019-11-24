@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.electrictalk.Activities.MessagesActivity;
 import com.example.electrictalk.Activities.TopicsActivity;
 import com.example.electrictalk.Models.CarModel;
+import com.example.electrictalk.Models.TopicModel;
 import com.example.electrictalk.R;
 
 import java.util.List;
@@ -18,12 +19,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.ViewHolder> {
-
-
-    private List<CarModel> myTopics;
+    private List<TopicModel> myTopics;
     private Context context;
 
-    public TopicsAdapter(List<CarModel> myTopics, Context context) {
+    public TopicsAdapter(List<TopicModel> myTopics, Context context) {
         this.myTopics = myTopics;
         this.context = context;
     }
@@ -41,14 +40,16 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull TopicsAdapter.ViewHolder holder, int position) {
 
-        String topic = myTopics.get(position).getCompany();
+        String topic = myTopics.get(position).getTitle();
+        String content = myTopics.get(position).getContent();
 
         holder.topicTv.setText(topic);
+        holder.topicTv.setText(content);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(context, MessagesActivity.class);
+                Intent mIntent = new Intent(context, TopicsActivity.class);
                 context.startActivity(mIntent);
             }
         });
@@ -62,7 +63,7 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView topicTv;
+        private TextView topicTv, contentTv;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -72,6 +73,7 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.ViewHolder
 
         private void initializeViews(View itemView) {
             topicTv = itemView.findViewById(R.id.tv_topic);
+            contentTv = itemView.findViewById(R.id.tv_topic_content);
         }
     }
 }
