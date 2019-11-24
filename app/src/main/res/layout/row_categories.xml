@@ -10,8 +10,9 @@
         android:id="@+id/tv_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="28sp"
-        android:text="Topic1">
+        android:textSize="22sp"
+        android:text="Topic1"
+        android:layout_centerInParent="true">
     </TextView>
 </RelativeLayout>
 
