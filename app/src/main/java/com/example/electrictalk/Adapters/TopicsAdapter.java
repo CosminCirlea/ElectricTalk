@@ -46,13 +46,13 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.ViewHolder
         holder.topicTv.setText(topic);
         holder.topicTv.setText(content);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mIntent = new Intent(context, TopicsActivity.class);
-                context.startActivity(mIntent);
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent mIntent = new Intent(context, TopicsActivity.class);
+//                context.startActivity(mIntent);
+//            }
+//        });
 
     }
 
