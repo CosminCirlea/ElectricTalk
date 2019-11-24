@@ -8,6 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <include layout="@layout/toolbar_with_back_button"/>
 
         <ImageView
             android:id="@+id/iv_icon"

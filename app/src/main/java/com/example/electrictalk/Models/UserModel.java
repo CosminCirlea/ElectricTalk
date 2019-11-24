@@ -11,6 +11,7 @@ public class UserModel {
     private String name;
     @SerializedName("email")
     private String email;
+    @SerializedName("password")
     private String password;
     private UUID id;
 

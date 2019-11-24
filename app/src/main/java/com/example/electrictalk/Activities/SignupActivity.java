@@ -44,7 +44,7 @@ public class SignupActivity extends AppCompatActivity {
                 if (data.token != null)
                 {
                     HttpClientManager.Token = data.token;
-                    startActivity(new Intent(SignupActivity.this, HomeActivity.class));
+                    startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                 }
             }
 

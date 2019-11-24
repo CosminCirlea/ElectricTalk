@@ -12,7 +12,7 @@ import com.example.electrictalk.Models.CarModel;
 import com.example.electrictalk.R;
 import com.google.gson.Gson;
 
-public class EditCarActivity extends AppCompatActivity {
+public class EditCarActivity extends BaseAppCompat {
 
     private EditText companyEt, modelEt, revisionEt, autonomyEt, yearEt, batteryEt;
     private CarModel car;
