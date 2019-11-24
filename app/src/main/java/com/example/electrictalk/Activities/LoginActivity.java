@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.example.electrictalk.Helpers.HttpClientManager;
 import com.example.electrictalk.Helpers.StorageHelper;
 import com.example.electrictalk.Models.CarModel;
+import com.example.electrictalk.Models.CategoryModel;
 import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.SignInResponse;
 import com.example.electrictalk.Models.UserModel;
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         if (!HttpClientManager.Token.equals(""))
         {
             getCars();
+            getCategories();
             getStations();
             getProfileData();
         }
@@ -54,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             public void dataReceived(SignInResponse data) {
                 HttpClientManager.Token = data.token;
                 getCars();
+                getCategories();
                 getStations();
                 getProfileData();
             }
@@ -106,6 +109,23 @@ public class LoginActivity extends AppCompatActivity {
                 StorageHelper.myUser = data;
                 Intent myInt2= new Intent(LoginActivity.this,HomeActivity.class);
                 startActivity(myInt2);
+            }
+
+            @Override
+            public void onFailed() {
+
+            }
+        });
+    }
+
+    private void getCategories()
+    {
+        StorageHelper.myCategoriesList = new ArrayList<>();
+
+        HttpClientManager.getInstance().getCategories(new HttpClientManager.OnDataReceived<List<CategoryModel>>() {
+            @Override
+            public void dataReceived(List<CategoryModel> data) {
+                StorageHelper.myCategoriesList.addAll(data);
             }
 
             @Override

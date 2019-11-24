@@ -5,9 +5,11 @@ import android.location.Location;
 import android.widget.Toast;
 
 import com.example.electrictalk.Models.CarModel;
+import com.example.electrictalk.Models.CategoryModel;
 import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.LocationModel;
 import com.example.electrictalk.Models.SignInResponse;
+import com.example.electrictalk.Models.TopicModel;
 import com.example.electrictalk.Models.UserModel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -77,7 +79,7 @@ public class HttpClientManager {
                 setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
                 .create();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.6.62:5030/")
+                .baseUrl("http://172.20.10.5:5030/")
 
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(httpClient.build())
@@ -342,4 +344,88 @@ public class HttpClientManager {
             }
         });
     }
+
+    public void addCategory(String title, final OnDataReceived<CategoryModel> callback)
+    {
+        Map<String, String> map = new HashMap<>();
+        map.put("title", title);
+
+        Call<CategoryModel> tokens = service.addCategory(map);
+        tokens.enqueue(new Callback<CategoryModel>() {
+            @Override
+            public void onResponse(Call<CategoryModel> call, retrofit2.Response<CategoryModel> response) {
+                if(response.isSuccessful()) {
+                    CategoryModel aux = response.body();
+                    callback.dataReceived(aux);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CategoryModel> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void getCategories(final OnDataReceived<List<CategoryModel>> callback)
+    {
+        Call<List<CategoryModel>> tokens =service.getCategories();
+        tokens.enqueue(new Callback<List<CategoryModel>>() {
+            @Override
+            public void onResponse(Call<List<CategoryModel>> call, retrofit2.Response<List<CategoryModel>> response) {
+                if (response.isSuccessful())
+                {
+                    callback.dataReceived(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CategoryModel>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void getTopics(UUID id, final OnDataReceived<List<TopicModel>> callback){
+
+        Call<List<TopicModel>> token = service.getTopics(id);
+        token.enqueue(new Callback<List<TopicModel>>() {
+            @Override
+            public void onResponse(Call<List<TopicModel>> call, retrofit2.Response<List<TopicModel>> response) {
+                if (response.isSuccessful())
+                {
+                    callback.dataReceived(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<TopicModel>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void addTopic(UUID id, String title, String content, final OnDataReceived<TopicModel> callback)
+    {
+        Map<String, String> map = new HashMap<>();
+        map.put("title", title);
+        map.put("content", content);
+
+        Call<TopicModel> tokens =service.addTopic(id, map);
+        tokens.enqueue(new Callback<TopicModel>() {
+            @Override
+            public void onResponse(Call<TopicModel> call, retrofit2.Response<TopicModel> response) {
+                if (response.isSuccessful())
+                {
+                    callback.dataReceived(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TopicModel> call, Throwable t) {
+
+            }
+        });
+    }
+
 }

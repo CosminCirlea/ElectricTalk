@@ -8,10 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.electrictalk.Activities.HomeActivity;
+import com.example.electrictalk.Activities.MessagesActivity;
 import com.example.electrictalk.Activities.OneCarActivity;
 import com.example.electrictalk.Activities.TopicsActivity;
 import com.example.electrictalk.Fragments.ForumFragment;
 import com.example.electrictalk.Models.CarModel;
+import com.example.electrictalk.Models.CategoryModel;
 import com.example.electrictalk.R;
 import com.google.gson.Gson;
 
@@ -23,10 +25,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder>{
 
-    private List<CarModel> myCategories;
+    private List<CategoryModel> myCategories;
     private Context context;
 
-    public CategoriesAdapter(List<CarModel> myCategories, Context context) {
+    public CategoriesAdapter(List<CategoryModel> myCategories, Context context) {
         this.myCategories = myCategories;
         this.context = context;
     }
@@ -42,16 +44,17 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-        String category = myCategories.get(position).getCompany();
+        String category = myCategories.get(position).getTitle();
 
         holder.categoryTv.setText(category);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(context, TopicsActivity.class);
+                Intent mIntent = new Intent(context, MessagesActivity.class);
+                mIntent.putExtra("category_id", myCategories.get(position).getId());
                 context.startActivity(mIntent);
             }
         });

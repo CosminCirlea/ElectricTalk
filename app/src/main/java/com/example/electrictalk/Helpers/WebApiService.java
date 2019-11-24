@@ -1,8 +1,10 @@
 package com.example.electrictalk.Helpers;
 
 import com.example.electrictalk.Models.CarModel;
+import com.example.electrictalk.Models.CategoryModel;
 import com.example.electrictalk.Models.ChargingStationModel;
 import com.example.electrictalk.Models.SignInResponse;
+import com.example.electrictalk.Models.TopicModel;
 import com.example.electrictalk.Models.UserModel;
 
 import java.util.List;
@@ -54,4 +56,16 @@ public interface WebApiService {
 
     @POST("api/Stations/{id}/Delete")
     Call<ChargingStationModel> deleteStation(@Path(value = "id") UUID id);
+
+    @POST("api/Forum/Category")
+    Call<CategoryModel> addCategory(@Body Map<String, String> map);
+
+    @GET("api/Forum/Category")
+    Call<List<CategoryModel>> getCategories();
+
+    @GET("api/Forum/Category/{id}/Topics")
+    Call<List<TopicModel>> getTopics(@Path(value = "id")UUID id);
+
+    @POST("api/Forum/Category/{id}/Topics")
+    Call<TopicModel> addTopic(@Path(value = "id")UUID id, @Body Map<String, String> map);
 }
