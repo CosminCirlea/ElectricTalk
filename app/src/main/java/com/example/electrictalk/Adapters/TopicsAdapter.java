@@ -49,7 +49,7 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(context, MessagesActivity.class);
+                Intent mIntent = new Intent(context, TopicsActivity.class);
                 context.startActivity(mIntent);
             }
         });

@@ -66,6 +66,6 @@ public interface WebApiService {
     @GET("api/Forum/Category/{id}/Topics")
     Call<List<TopicModel>> getTopics(@Path(value = "id")UUID id);
 
-    @POST("api/Forum/Category/{id}/Topics")
+    @POST("api/Forum/Category/{id}/Topic")
     Call<TopicModel> addTopic(@Path(value = "id")UUID id, @Body Map<String, String> map);
 }

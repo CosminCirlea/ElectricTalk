@@ -37,7 +37,7 @@ public class MessagesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_listed_messages);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         addTopicsBtn = findViewById(R.id.btn_add_topics);
-        id = getIntent().getStringExtra("id");
+        id = getIntent().getStringExtra("category_id");
 
         addTopicsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +57,8 @@ public class MessagesActivity extends AppCompatActivity {
             @Override
             public void dataReceived(List<TopicModel> data) {
                 topicModels = data;
+                populateRecycler();
+
             }
 
             @Override
@@ -64,7 +66,6 @@ public class MessagesActivity extends AppCompatActivity {
 
             }
         });
-        populateRecycler();
     }
 
     private void populateRecycler()
