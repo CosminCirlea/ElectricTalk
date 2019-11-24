@@ -63,7 +63,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void displayStations(){
-        Drawable circleDrawable = getResources().getDrawable(R.drawable.ic_location);
+        Drawable circleDrawable = getResources().getDrawable(R.drawable.ic_station);
 
         for (ChargingStationModel station: StorageHelper.myStationsList) {
             Marker marker = googleMap.addMarker(new MarkerOptions()
